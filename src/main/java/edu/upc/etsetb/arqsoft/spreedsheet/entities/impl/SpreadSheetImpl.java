@@ -16,41 +16,53 @@ import java.util.Map;
  */
 public class SpreadSheetImpl implements Spreadsheet {
     private Map <String,CellImpl> cellsMap; //he posat 
-    private int maxFila;
-    private int maxColumna;
+    private int maxRow;
+    private int maxColumn;
     
     
     public SpreadSheetImpl(){
         cellsMap = new HashMap<>(); //strings como keys
-        maxFila=1;
-        maxColumna=1;
+        maxRow=1;
+        maxColumn=1;
     }
     
     public Double getCellValueAsDouble(String coordinate){
         throw new UnsupportedOperationException("SpreedSheetImp::getCellValueAsDouble(). Unsopported Method");
-        //update el maxcolumna, maxF
+        
+        CellImpl cell = cellsMap.get(coordinate);
+        Double value = cell.getContentValueAsDouble();
+        // desde aqui haure de mirar que faig quan esta buida la cel·la
+        return value;
+        
     }
     
      public String getCellValueAsString(String coordinate){
         throw new UnsupportedOperationException("SpreedSheetImp::getCellValueAsString(). Unsopported Method");
-    }
+        CellImpl cell = cellsMap.get(coordinate);
+        String value = cell.getContentValueAsString();
+        
+        return value;
+     }
     
     public void setCellContent(String coordinate, Content content){
+        updateMaxRowColumn(coordinate);
+        //mirar si existeix i si existeix treureli el valor
+        
         //CellImpl.setContent(content);
        // cellsMap.put(coordinate, );
-        //metode updateMaxFilaColumna(coordinate)   
         
     } 
     
-    public static String columnNumberToString(int maxColumna){
+    public static String columnNumberToString(int column){
         throw new UnsupportedOperationException("SpreedSheetImp::intToStringColumn(). Unsopported Method");
         //buscar algoritme 
     }
     
     
-     public static int columnStringToNumber(String maxColumna){
-         throw new UnsupportedOperationException("SpreedSheetImp::stringTointColumn(). Unsopported Method");
-        
+     public static int columnStringToNumber(String column){
+        throw new UnsupportedOperationException("SpreedSheetImp::stringTointColumn(). Unsopported Method");
+        char column = column.charAt(0);
+         .charAt(i)-'a'+1
     }
      
      public static String concatString(String row, String column){
@@ -58,13 +70,19 @@ public class SpreadSheetImpl implements Spreadsheet {
         
      }
      
-     public void updateMaxFilaColumna(String coordinate){
+     public void updateMaxRowColumn(String coordinate){
          
-        String fila = coordinate.split("")[0];
-        String columna = coordinate.split("")[1];
 
-        if (fila >  this.maxFila){ 
-           this.maxFila= fila;
+        String columnString = coordinate.split("")[0];
+        int row = Integer.parseInt(coordinate.split("")[1]);
+        int columnInt = columnStringToNumber(columnString);
+
+        if (row >  this.maxRow){ 
+           this.maxRow= row;
+        }
+        
+        if (columnInt >  this.maxColumn){ 
+           this.maxColumn= columnInt;
         }
      }
      
