@@ -19,7 +19,7 @@ public class Promedio implements Function {
         
     }
         
-    }
+ }
     
     
     

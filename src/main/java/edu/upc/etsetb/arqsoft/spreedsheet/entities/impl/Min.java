@@ -5,10 +5,12 @@
  */
 package edu.upc.etsetb.arqsoft.spreedsheet.entities.impl;
 
+import edu.upc.etsetb.arqsoft.spreedsheet.enties.Function;
+
 /**
  *
  * @author sesan
  */
-public class Min implements Function {
+public class Min implements Functioni  {
     
 }
