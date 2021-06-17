@@ -16,17 +16,33 @@ import java.util.List;
  */
 public class Formula implements Content {
     
-    private Value value;
-    
+    private MyNumber value;
     private List<Component> components;
-    
+    private String stringFormula;
+  
     
     public Formula(){
         
     }
 
-    public Value getValue() {
-        return this.value;
+    @Override
+    public Content getContent() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setContent(Content content) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Double getAsDouble() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getAsString() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

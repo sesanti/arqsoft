@@ -5,18 +5,24 @@
  */
 package edu.upc.etsetb.arqsoft.spreedsheet.entities.impl;
 
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Component;
+import edu.upc.etsetb.arqsoft.spreedsheet.enties.Function;
+import java.util.List;
 
 /**
  *
  * @author sesan
  */
-public class Operator implements Component{
-    String operator;
-      
-    public Operator(){
+public class Promedio implements Function {
+    private   List<Argument> arguments;
+    
+    public Promedio(){
+        
+    }
         
     }
     
     
+    
+ public Double promedio(arguments){  
+        return Double(5);
 }

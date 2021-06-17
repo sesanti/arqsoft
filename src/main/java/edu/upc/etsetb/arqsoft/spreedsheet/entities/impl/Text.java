@@ -6,7 +6,7 @@
 package edu.upc.etsetb.arqsoft.spreedsheet.entities.impl;
 
 import edu.upc.etsetb.arqsoft.spreedsheet.enties.Content;
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Value;
+ 
 
 /**
  *
@@ -14,14 +14,30 @@ import edu.upc.etsetb.arqsoft.spreedsheet.enties.Value;
  */
 public class Text implements Content{
     
-    private Value value;
+
+    private MyString myString;
 
     public Text(){
        
     }  
+ 
+    public Content getContent() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
-    public Value getValue() {
-       return this.value;
+ 
+    public void setContent(Content content) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+ 
+    public Double getAsDouble() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+ 
+    public String getAsString() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

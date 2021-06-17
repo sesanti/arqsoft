@@ -14,5 +14,5 @@ public interface Spreedsheet {
     public Double getCellValueAsDouble(String coordinate);
     
     public String getCellValueAsString(String coordinate);
-   
+    
 }

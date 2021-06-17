@@ -9,12 +9,6 @@ package edu.upc.etsetb.arqsoft.spreedsheet.enties;
  *
  * @author sesan
  */
-public interface Content {
-    
-    public Content getContent();
-    public void setContent(Content content);
-    public Double getAsDouble();
-    public String getAsString();
-           
+public interface Function extends Operand {
     
 }

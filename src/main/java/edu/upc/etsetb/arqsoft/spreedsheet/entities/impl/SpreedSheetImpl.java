@@ -20,11 +20,11 @@ public class SpreedSheetImpl implements Spreedsheet {
         cellsMap = new HashMap<String,CellImpl>();
     }
     
-    public Double getCellValueAsDouble(String coordinate){
+    public Double getCellValueAsDouble(String coordinate){ //TODO
         return  new Double(5);
     }
     
-     public String getCellValueAsString(String coordinate){
+     public String getCellValueAsString(String coordinate){//TODO
         return  "";
     }
    

@@ -5,12 +5,10 @@
  */
 package edu.upc.etsetb.arqsoft.spreedsheet.entities.impl;
 
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Component;
-
 /**
  *
  * @author sesan
  */
-public abstract class Operand extends MyNumber implements Component {
+public class Min implements Function {
     
 }

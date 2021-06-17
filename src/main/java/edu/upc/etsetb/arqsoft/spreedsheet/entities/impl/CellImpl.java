@@ -21,15 +21,21 @@ public class CellImpl implements Cell {
     private List<Cell> iDepend;
     
     
-    public CellImpl(){
+    public CellImpl(){ //TODO
        content = new Text(); 
     }
-
-    public Content getContent() {
-       return this.content;
-    }
+    
     
     public String getCoordinate(){
         return this.coordinate;
+    }
+
+
+    public Double getContentValueAsDouble() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getContentValueAsString() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -14,14 +14,31 @@ import edu.upc.etsetb.arqsoft.spreedsheet.enties.Value;
  */
 public class Numerical implements Content{
     
-    private Value value;
+    private MyNumber myNumber;
     
     public Numerical(){
         
     }
+ 
 
-    public Value getValue() {
-       return this.value;
+    @Override
+    public Content getContent() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setContent(Content content) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Double getAsDouble() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getAsString() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

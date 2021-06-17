@@ -11,6 +11,8 @@ package edu.upc.etsetb.arqsoft.spreedsheet.enties;
  */
 public interface Cell {
     
-    public Content getContent();
+    public Double getContentValueAsDouble();
+    public String getContentValueAsString();
+ 
       
 }
