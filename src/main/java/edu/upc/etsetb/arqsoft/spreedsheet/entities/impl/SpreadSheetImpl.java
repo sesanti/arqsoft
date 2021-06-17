@@ -53,6 +53,11 @@ public class SpreadSheetImpl implements Spreadsheet {
         
     }
      
+     public static String concatString(String row, String column){
+         return column+row;
+        
+     }
+     
      public void updateMaxFilaColumna(String coordinate){
          
         String fila = coordinate.split("")[0];

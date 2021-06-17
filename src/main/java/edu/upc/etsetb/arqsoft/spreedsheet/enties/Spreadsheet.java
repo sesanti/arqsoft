@@ -15,4 +15,11 @@ public interface Spreadsheet {
     
     public String getCellValueAsString(String coordinate);
     
+    //public Integer columnStringToNumber(String column);
+    
+    //public String columnNumberToString(Integer column);
+    
+    //public String concatString(String row, String column);
+    
+    public void setCellContent(String string, Content content);
 }

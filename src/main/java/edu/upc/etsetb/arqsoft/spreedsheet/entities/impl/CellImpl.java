@@ -22,10 +22,10 @@ public class CellImpl implements Cell {
    
     
     //getInstance lo llamaremos desde la fábrica
-    public static CellImpl getInstance(Content content, List<Cell> whoDependsOnMe, List<Cell> iDepend){ // se puede llamar desde fabrica
+    //public static CellImpl getInstance(Content content, List<Cell> whoDependsOnMe, List<Cell> iDepend){ // se puede llamar desde fabrica
    
-        return new CellImpl(content,whoDependsOnMe, iDepend);
-    }
+        //return new CellImpl(content,whoDependsOnMe, iDepend);
+    //}
     
 
     protected CellImpl(Content content, List<Cell> whoDependsOnMe, List<Cell> iDepend) {
@@ -60,7 +60,7 @@ public class CellImpl implements Cell {
         return this.whoDependsOnMe;
     }
     
-    public List iDepend(){
+    public List getIDepend(){
         return this.iDepend;
     }
 }
