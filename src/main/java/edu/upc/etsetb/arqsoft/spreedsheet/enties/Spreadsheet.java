@@ -9,7 +9,7 @@ package edu.upc.etsetb.arqsoft.spreedsheet.enties;
  *
  * @author sesan
  */
-public interface Spreedsheet {
+public interface Spreadsheet {
 
     public Double getCellValueAsDouble(String coordinate);
     

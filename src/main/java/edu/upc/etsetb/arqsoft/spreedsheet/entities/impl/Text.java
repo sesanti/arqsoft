@@ -17,14 +17,24 @@ public class Text implements Content{
 
     private MyString myString;
 
-    public Text(){
-       
-    }  
+    public static Text getInstance(MyString myString){    
+        return new Text(myString);
+    }
+    
+    
+   
+    protected Text(MyString myString){
+        this.myString = myString;
+    }
  
     public Content getContent() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this;
     }
-
+    
+    public MyString getValue(){
+        return myString;
+    }
  
     public void setContent(Content content) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

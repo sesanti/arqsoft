@@ -15,6 +15,7 @@ public interface Content {
     public void setContent(Content content);
     public Double getAsDouble(); //value
     public String getAsString(); //value
+    public Value getValue(); //?
            
     
 }

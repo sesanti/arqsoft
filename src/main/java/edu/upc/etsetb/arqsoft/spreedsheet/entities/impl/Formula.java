@@ -9,26 +9,34 @@ import java.util.List;
  */
 public class Formula implements Content {
     
-    private Value value;
+    private Value value; //resultado para presentarlo por pantalla
     
-    private List<Component> components;
+    private List<Component> components; //list Component que nos da el PostfixGenerator y es la entrada al PostifxCalculator
     
-    private String string;
+    private String string; //string para guardarlo en la celda
+    
+    
     
     public static Formula getInstance(Value value, List<Component> components, String string){ // se puede llamar desde fabrica
         
         return new Formula(value,components,string);
     }
+    
+    
     protected Formula(Value value, List<Component> components, String string){
            this.value=value;
            this.components=components;
-           this.string=string;
-            
+           this.string=string;        
     }
 
     @Override
     public Content getContent() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return this;
+    }
+    
+    @Override
+    public Value getValue(){
+        return this.value;
     }
 
     @Override

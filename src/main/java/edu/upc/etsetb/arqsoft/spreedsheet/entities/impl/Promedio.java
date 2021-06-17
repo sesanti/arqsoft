@@ -5,6 +5,7 @@
  */
 package edu.upc.etsetb.arqsoft.spreedsheet.entities.impl;
 
+import edu.upc.etsetb.arqsoft.spreedsheet.enties.Argument;
 import edu.upc.etsetb.arqsoft.spreedsheet.enties.Function;
 import java.util.List;
 
@@ -18,11 +19,9 @@ public class Promedio implements Function {
     public Promedio(){
         
     }
-        
- }
-    
-    
-    
- public Double promedio(arguments){  
-        return Double(5);
+         
+    public Double promedio(List<Argument> arguments){  
+        throw new UnsupportedOperationException("Promedio::promedio(arguments): Unsopported Method");
+    }
+ 
 }
