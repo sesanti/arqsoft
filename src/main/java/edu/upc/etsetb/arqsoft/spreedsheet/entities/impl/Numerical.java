@@ -16,14 +16,28 @@ public class Numerical implements Content{
     
     private MyNumber myNumber;
     
-    public Numerical(){
-        
+    
+ 
+      
+    public static Numerical getInstance(MyNumber myNumber){    
+        return new Numerical(myNumber);
+    }
+    
+    
+   
+    protected Numerical(MyNumber myNumber){
+        this.myNumber = myNumber;
     }
  
 
     @Override
     public Content getContent() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this;
+    }
+    
+    @Override
+    public Value getValue(){
+        return myNumber;
     }
 
     @Override
