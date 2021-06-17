@@ -1,10 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package edu.upc.etsetb.arqsoft.spreedsheet.entities.impl;
-
 import edu.upc.etsetb.arqsoft.spreedsheet.enties.Component;
 import edu.upc.etsetb.arqsoft.spreedsheet.enties.Content;
 import edu.upc.etsetb.arqsoft.spreedsheet.enties.Value;
@@ -16,13 +9,21 @@ import java.util.List;
  */
 public class Formula implements Content {
     
-    private MyNumber value;
-    private List<Component> components;
-    private String stringFormula;
-  
+    private Value value;
     
-    public Formula(){
+    private List<Component> components;
+    
+    private String string;
+    
+    public static Formula getInstance(Value value, List<Component> components, String string){ // se puede llamar desde fabrica
         
+        return new Formula(value,components,string);
+    }
+    protected Formula(Value value, List<Component> components, String string){
+           this.value=value;
+           this.components=components;
+           this.string=string;
+            
     }
 
     @Override

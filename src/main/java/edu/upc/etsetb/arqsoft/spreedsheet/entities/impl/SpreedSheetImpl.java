@@ -15,17 +15,19 @@ import java.util.Map;
  */
 public class SpreedSheetImpl implements Spreedsheet {
     private Map <String,CellImpl> cellsMap;
+    private int maxFila;
+    private int maxColumna;
     
     public SpreedSheetImpl(){
-        cellsMap = new HashMap<String,CellImpl>();
+        cellsMap = new HashMap<>();
     }
     
-    public Double getCellValueAsDouble(String coordinate){ //TODO
-        return  new Double(5);
+    public Double getCellValueAsDouble(String coordinate){
+        throw new UnsupportedOperationException("SpreedSheetImp::getCellValueAsDouble(). Unsopported Method");
     }
     
-     public String getCellValueAsString(String coordinate){//TODO
-        return  "";
+     public String getCellValueAsString(String coordinate){
+        throw new UnsupportedOperationException("SpreedSheetImp::getCellValueAsString(). Unsopported Method");
     }
    
 }

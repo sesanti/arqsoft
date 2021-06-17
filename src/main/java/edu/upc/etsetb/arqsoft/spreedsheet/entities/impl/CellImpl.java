@@ -15,7 +15,6 @@ import java.util.List;
  */
 public class CellImpl implements Cell {
     
-    private String coordinate;
     private Content content;
     private List<Cell> whoDependsOnMe;
     private List<Cell> iDepend;
@@ -30,6 +29,14 @@ public class CellImpl implements Cell {
         return this.coordinate;
     }
 
+    public Content getContent() {
+       return this.content;
+    }
+
+    public Value getValue(){
+        return this.content.getValue()
+    }
+}
 
     public Double getContentValueAsDouble() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
