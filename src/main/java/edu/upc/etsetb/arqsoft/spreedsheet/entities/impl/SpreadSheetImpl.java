@@ -15,64 +15,73 @@ import java.util.Map;
  * @author sesan
  */
 public class SpreadSheetImpl implements Spreadsheet {
-    private Map <String,CellImpl> cellsMap; //he posat 
+    private Map <String,CellImpl> cellsMap; 
     private int maxRow;
     private int maxColumn;
     
     
     public SpreadSheetImpl(){
-        cellsMap = new HashMap<>(); //strings como keys
+        cellsMap = new HashMap<String,CellImpl>(); //strings como keys
         maxRow=1;
         maxColumn=1;
     }
     
     public Double getCellValueAsDouble(String coordinate){
-        throw new UnsupportedOperationException("SpreedSheetImp::getCellValueAsDouble(). Unsopported Method");
         
         CellImpl cell = cellsMap.get(coordinate);
         Double value = cell.getContentValueAsDouble();
-        // desde aqui haure de mirar que faig quan esta buida la cel·la
         return value;
         
     }
     
      public String getCellValueAsString(String coordinate){
-        throw new UnsupportedOperationException("SpreedSheetImp::getCellValueAsString(). Unsopported Method");
-        CellImpl cell = cellsMap.get(coordinate);
-        String value = cell.getContentValueAsString();
         
+        CellImpl cell = cellsMap.get(coordinate);
+        String value = cell.getContentValueAsString(); 
         return value;
      }
     
     public void setCellContent(String coordinate, Content content){
         updateMaxRowColumn(coordinate);
-        //mirar si existeix i si existeix treureli el valor
+       
+        CellImpl cell =cellsMap.get(coordinate); //treura una cel·la si ja havia estat creada
         
-        //CellImpl.setContent(content);
-       // cellsMap.put(coordinate, );
+        if(cell == null){ //cel·la no existeix
+            cell =CellFactory.getInstance(content, null, null);
+            cellsMap.put(coordinate, cell);
+            
+        }
+        else{
+            cell.setContent(content);
+        
+        }
+      
         
     } 
     
     public static String columnNumberToString(int column){
-        throw new UnsupportedOperationException("SpreedSheetImp::intToStringColumn(). Unsopported Method");
-        //buscar algoritme 
+        return String.valueOf((char)(column + 'A' - 1));
+        
+ 
     }
     
     
-     public static int columnStringToNumber(String column){
-        throw new UnsupportedOperationException("SpreedSheetImp::stringTointColumn(). Unsopported Method");
-        char column = column.charAt(0);
-         .charAt(i)-'a'+1
+    public static int columnStringToNumber(String column){
+ 
+        char column_char = column.charAt(0);
+        int number = column_char -'A' +1;
+        return number;
+       
     }
      
-     public static String concatString(String row, String column){
-         return column+row;
+     public static String concatString( String column,String row){
+         
+        return column+row;
         
      }
      
      public void updateMaxRowColumn(String coordinate){
-         
-
+        
         String columnString = coordinate.split("")[0];
         int row = Integer.parseInt(coordinate.split("")[1]);
         int columnInt = columnStringToNumber(columnString);
