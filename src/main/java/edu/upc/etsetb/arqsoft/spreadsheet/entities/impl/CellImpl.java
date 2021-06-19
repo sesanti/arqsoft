@@ -57,11 +57,11 @@ public class CellImpl implements Cell {
     }
 
     public Double getContentValueAsDouble() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.content.getAsDouble();
     }
 
     public String getContentValueAsString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.content.getAsString();
     }
     
     public void setContent(Content content){

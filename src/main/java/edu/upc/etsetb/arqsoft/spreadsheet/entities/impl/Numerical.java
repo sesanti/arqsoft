@@ -24,29 +24,29 @@ public class Numerical implements Content{
         this.myNumber = myNumber;
     }
 
-    @Override
+
     public Content getContent() {
         return this;
     }
     
-    @Override
+
     public Value getValue(){
         return myNumber;
     }
 
-    @Override
+
     public void setContent(Content content) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+
     public Double getAsDouble() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.myNumber.getValue();
     }
 
-    @Override
+
     public String getAsString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.myNumber.getValue().toString();
     }
     
 }

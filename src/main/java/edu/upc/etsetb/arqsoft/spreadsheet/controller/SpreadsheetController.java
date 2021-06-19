@@ -18,13 +18,23 @@ public class SpreadsheetController {
     private Spreadsheet spreadsheet;
     private ContentFactory contentFactory;
 
+    public SpreadsheetController(){
+        this.contentFactory = new ContentFactory();
+        createNewSpreadsheet();
+    }
 
-    public void createNewSpreadsheet() {
+    private void createNewSpreadsheet() {
         this.spreadsheet = new SpreadsheetImpl();
     }
 
+    public String getCellContentAsString(String coordinate){
+        return this.spreadsheet.getCellValueAsString(coordinate);
+    }
+    public Double getCellContentAsDouble(String coordinate){
+        return this.spreadsheet.getCellValueAsDouble(coordinate);
+    }
 
-    public void editCell(String coordinate, String contentAsString) { //Content content
+    public void editSpreadsheet(String coordinate, String contentAsString) { //Content content
         
         /*- MIRAR si la coordenada es correcta. Si no lo es --> exception mala coordenada
           - Crear objeto contenido y asignar a la celda q tiene las coordenadas
@@ -41,15 +51,8 @@ public class SpreadsheetController {
             throw new RuntimeException();
         }
 
-
         //Create content
         Content content = contentFactory.getInstance(contentAsString);
-        //spreadsheet
-
-
-
-
-
-
+        spreadsheet.setCellContent(coordinate,content);
     }
 }

@@ -14,6 +14,7 @@ import edu.upc.etsetb.arqsoft.spreadsheet.enties.Value;
 public class MyString implements Value{
     
     private String value;
+
     public static MyString getInstance(String value){
         return new MyString(value);
     }
@@ -24,6 +25,6 @@ public class MyString implements Value{
     } 
 
     public String getValue() {
-        return value;
+        return this.value;
     }
 }

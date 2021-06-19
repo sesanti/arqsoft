@@ -40,12 +40,12 @@ public class Text implements Content{
 
  
     public Double getAsDouble() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Impossible to return to double"); //To change body of generated methods, choose Tools | Templates.
     }
 
  
     public String getAsString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.myString.getValue();
     }
     
 }
