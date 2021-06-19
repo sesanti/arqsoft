@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.upc.etsetb.arqsoft.spreedsheet.entities.impl;
+package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Value;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Value;
 
 /**
  *
@@ -14,8 +14,13 @@ import edu.upc.etsetb.arqsoft.spreedsheet.enties.Value;
 public class MyString implements Value{
     
     private String value;
+    public static MyString getInstance(String value){
+        return new MyString(value);
+    }
 
-    public MyString() {
+    public MyString(String value) {
+        this.value=value;
+
     } 
 
     public String getValue() {

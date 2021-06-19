@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.upc.etsetb.arqsoft.spreedsheet.entities.impl;
-
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Function;
+package edu.upc.etsetb.arqsoft.spreadsheet.enties;
 
 /**
  *
  * @author sesan
  */
-public class Min implements Function  {
+public interface Operand extends Component {
     
 }

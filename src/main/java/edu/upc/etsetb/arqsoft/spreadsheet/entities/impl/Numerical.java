@@ -3,49 +3,48 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.upc.etsetb.arqsoft.spreedsheet.entities.impl;
+package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Content;
- 
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Value;
 
 /**
  *
  * @author sesan
  */
-public class Text implements Content{
+public class Numerical implements Content{
     
+    private MyNumber myNumber;
 
-    private MyString myString;
+    public static Numerical getInstance(String myNumber){ //crear numerical a partir de string de input y se usa en COntent Factory
+        return new Numerical(MyNumber.getInstance(myNumber));
+    }
 
-    public static Text getInstance(MyString myString){    
-        return new Text(myString);
+    protected Numerical(MyNumber myNumber){
+        this.myNumber = myNumber;
     }
-    
-    
-   
-    protected Text(MyString myString){
-        this.myString = myString;
-    }
- 
+
+    @Override
     public Content getContent() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         return this;
     }
     
-    public MyString getValue(){
-        return myString;
+    @Override
+    public Value getValue(){
+        return myNumber;
     }
- 
+
+    @Override
     public void setContent(Content content) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
- 
+    @Override
     public Double getAsDouble() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
- 
+    @Override
     public String getAsString() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

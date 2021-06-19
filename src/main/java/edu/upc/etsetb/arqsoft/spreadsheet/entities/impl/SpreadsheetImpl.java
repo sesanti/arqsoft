@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.upc.etsetb.arqsoft.spreedsheet.entities.impl;
+package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Content;
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Spreadsheet;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Spreadsheet;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,13 +14,13 @@ import java.util.Map;
  *
  * @author sesan
  */
-public class SpreadSheetImpl implements Spreadsheet {
+public class SpreadsheetImpl implements Spreadsheet {
     private Map <String,CellImpl> cellsMap; //he posat 
     private int maxFila;
     private int maxColumna;
     
     
-    public SpreadSheetImpl(){
+    public SpreadsheetImpl(){
         cellsMap = new HashMap<>(); //strings como keys
         maxFila=1;
         maxColumna=1;

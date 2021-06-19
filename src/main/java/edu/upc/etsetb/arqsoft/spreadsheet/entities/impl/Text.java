@@ -3,54 +3,47 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.upc.etsetb.arqsoft.spreedsheet.entities.impl;
+package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Content;
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Value;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
+ 
 
 /**
  *
  * @author sesan
  */
-public class Numerical implements Content{
+public class Text implements Content{
     
-    private MyNumber myNumber;
-    
-    
- 
-      
-    public static Numerical getInstance(MyNumber myNumber){    
-        return new Numerical(myNumber);
-    }
-    
-    
-   
-    protected Numerical(MyNumber myNumber){
-        this.myNumber = myNumber;
-    }
- 
 
-    @Override
+    private MyString myString;
+
+    public static Text getInstance(String value){
+        return new Text(MyString.getInstance(value));
+    }
+
+    protected Text(MyString myString){
+        this.myString = myString;
+    }
+ 
     public Content getContent() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         return this;
     }
     
-    @Override
-    public Value getValue(){
-        return myNumber;
+    public MyString getValue(){
+        return myString;
     }
-
-    @Override
+ 
     public void setContent(Content content) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+ 
     public Double getAsDouble() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+ 
     public String getAsString() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

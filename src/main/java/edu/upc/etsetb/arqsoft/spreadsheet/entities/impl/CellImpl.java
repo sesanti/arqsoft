@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.upc.etsetb.arqsoft.spreedsheet.entities.impl;
+package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Cell;
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Content;
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Value;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Cell;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Value;
 import java.util.List;
 
 /**
@@ -24,7 +24,7 @@ public class CellImpl implements Cell {
     //getInstance lo llamaremos desde la fábrica
     //public static CellImpl getInstance(Content content, List<Cell> whoDependsOnMe, List<Cell> iDepend){ // se puede llamar desde fabrica
    
-        //return new CellImpl(content,whoDependsOnMe, iDepend);
+      //  return new CellImpl(content,whoDependsOnMe, iDepend);
     //}
     
 

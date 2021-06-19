@@ -1,6 +1,8 @@
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Component;
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Content;
-import edu.upc.etsetb.arqsoft.spreedsheet.enties.Value;
+package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
+
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Component;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Value;
 import java.util.List;
 
 /**
@@ -13,20 +15,20 @@ public class Formula implements Content {
     
     private List<Component> components; //list Component que nos da el PostfixGenerator y es la entrada al PostifxCalculator
     
-    private String string; //string para guardarlo en la celda
+    private String formulaOriginal; //string para guardarlo en la celda
     
     
     
-    public static Formula getInstance(Value value, List<Component> components, String string){ // se puede llamar desde fabrica
+    public static Formula getInstance(Value value, List<Component> components, String formulaOriginal){ // se puede llamar desde fabrica
         
-        return new Formula(value,components,string);
+        return new Formula(value,components,formulaOriginal);
     }
     
     
-    protected Formula(Value value, List<Component> components, String string){
+    protected Formula(Value value, List<Component> components, String formulaOriginal){
            this.value=value;
            this.components=components;
-           this.string=string;        
+           this.formulaOriginal=formulaOriginal;        
     }
 
     @Override
