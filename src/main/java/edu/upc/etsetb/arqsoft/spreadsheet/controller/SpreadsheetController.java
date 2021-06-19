@@ -8,7 +8,7 @@ package edu.upc.etsetb.arqsoft.spreadsheet.controller;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Spreadsheet;
 import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.SpreadsheetImpl;
-import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.ContentFactory;
+import edu.upc.etsetb.arqsoft.spreadsheet.factories.ContentFactory;
 
 /**
  * @author martacosano

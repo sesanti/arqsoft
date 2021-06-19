@@ -7,6 +7,7 @@ package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Spreadsheet;
+import edu.upc.etsetb.arqsoft.spreadsheet.factories.CellFactory;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,13 +16,13 @@ import java.util.Map;
  * @author sesan
  */
 public class SpreadsheetImpl implements Spreadsheet {
-    private Map <String,CellImpl> cellsMap;
+    private Map <String, CellImpl> cellsMap;
     private int maxRow;
     private int maxColumn;
     
     
     public SpreadsheetImpl(){
-        cellsMap = new HashMap<String,CellImpl>(); //strings como keys
+        cellsMap = new HashMap<String, CellImpl>(); //strings como keys
         maxRow=1;
         maxColumn=1;
     }
@@ -47,7 +48,7 @@ public class SpreadsheetImpl implements Spreadsheet {
         CellImpl cell =cellsMap.get(coordinate); //treura una cel·la si ja havia estat creada
 
         if(cell == null){ //cel·la no existeix
-            cell =CellFactory.getInstance(content, null, null);
+            cell =CellFactory.getInstance(content);
             cellsMap.put(coordinate, cell);
 
         }
