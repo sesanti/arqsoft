@@ -15,56 +15,83 @@ import java.util.Map;
  * @author sesan
  */
 public class SpreadsheetImpl implements Spreadsheet {
-    private Map <String,CellImpl> cellsMap; //he posat 
-    private int maxFila;
-    private int maxColumna;
+    private Map <String,CellImpl> cellsMap;
+    private int maxRow;
+    private int maxColumn;
     
     
     public SpreadsheetImpl(){
-        cellsMap = new HashMap<>(); //strings como keys
-        maxFila=1;
-        maxColumna=1;
+        cellsMap = new HashMap<String,CellImpl>(); //strings como keys
+        maxRow=1;
+        maxColumn=1;
     }
     
     public Double getCellValueAsDouble(String coordinate){
-        throw new UnsupportedOperationException("SpreedSheetImp::getCellValueAsDouble(). Unsopported Method");
-        //update el maxcolumna, maxF
+
+        CellImpl cell = cellsMap.get(coordinate);
+        Double value = cell.getContentValueAsDouble();
+        return value;
+
     }
     
      public String getCellValueAsString(String coordinate){
-        throw new UnsupportedOperationException("SpreedSheetImp::getCellValueAsString(). Unsopported Method");
-    }
+
+        CellImpl cell = cellsMap.get(coordinate);
+        String value = cell.getContentValueAsString();
+        return value;
+     }
     
     public void setCellContent(String coordinate, Content content){
-        //CellImpl.setContent(content);
-       // cellsMap.put(coordinate, );
-        //metode updateMaxFilaColumna(coordinate)   
+        updateMaxRowColumn(coordinate);
+
+        CellImpl cell =cellsMap.get(coordinate); //treura una cel·la si ja havia estat creada
+
+        if(cell == null){ //cel·la no existeix
+            cell =CellFactory.getInstance(content, null, null);
+            cellsMap.put(coordinate, cell);
+
+        }
+        else{
+            cell.setContent(content);
         
-    } 
-    
-    public static String columnNumberToString(int maxColumna){
-        throw new UnsupportedOperationException("SpreedSheetImp::intToStringColumn(). Unsopported Method");
-        //buscar algoritme 
+        }
+
+
     }
     
-    
-     public static int columnStringToNumber(String maxColumna){
-         throw new UnsupportedOperationException("SpreedSheetImp::stringTointColumn(). Unsopported Method");
-        
+    public static String columnNumberToString(int column){
+        return String.valueOf((char)(column + 'A' - 1));
+
+
     }
-     
-     public static String concatString(String row, String column){
-         return column+row;
+
+
+    public static int columnStringToNumber(String column){
+
+        char column_char = column.charAt(0);
+        int number = column_char -'A' +1;
+        return number;
+
+    }
+
+     public static String concatString( String column,String row){
+
+        return column+row;
         
      }
      
-     public void updateMaxFilaColumna(String coordinate){
-         
-        String fila = coordinate.split("")[0];
-        String columna = coordinate.split("")[1];
+     public void updateMaxRowColumn(String coordinate){
 
-        if (fila >  this.maxFila){ 
-           this.maxFila= fila;
+        String columnString = coordinate.split("")[0];
+        int row = Integer.parseInt(coordinate.split("")[1]);
+        int columnInt = columnStringToNumber(columnString);
+
+        if (row >  this.maxRow){
+           this.maxRow= row;
+        }
+
+        if (columnInt >  this.maxColumn){
+           this.maxColumn= columnInt;
         }
      }
      
