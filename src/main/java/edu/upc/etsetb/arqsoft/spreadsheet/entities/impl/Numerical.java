@@ -36,7 +36,9 @@ public class Numerical implements Content{
 
 
     public void setContent(Content content) {
+
       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
 

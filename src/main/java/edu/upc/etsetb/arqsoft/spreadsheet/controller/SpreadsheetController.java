@@ -45,14 +45,16 @@ public class SpreadsheetController {
         */
         String[] part = coordinate.split("(?<=\\D)(?=\\d)");//check if right coordinate preguntar si hacer en funcion separada
         if (part[0].matches("[a-zA-Z]+") == false) {
+            System.out.println("coordenada mal");
             throw new RuntimeException();
         }
         if (part[1].matches("[0-9]+") == false) {
+            System.out.println("coordenada mal");
             throw new RuntimeException();
         }
 
         //Create content
-        Content content = contentFactory.getInstance(contentAsString);
+        Content content = contentFactory.getInstance(contentAsString, spreadsheet);
         spreadsheet.setCellContent(coordinate,content);
     }
 }

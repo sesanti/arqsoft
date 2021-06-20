@@ -7,6 +7,7 @@ package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Cell;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Operand;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Value;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.List;
  *
  * @author sesan
  */
-public class CellImpl implements Cell {
+public class CellImpl implements Cell, Operand {
     
     private Content content;
     private List<Cell> whoDependsOnMe;

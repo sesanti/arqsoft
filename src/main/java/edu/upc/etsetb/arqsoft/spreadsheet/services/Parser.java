@@ -151,7 +151,7 @@ public class Parser {
                         // argument -> NUMBER
                         nextToken();
                 }
-                else if (lookahead.token == Token.VARIABLE)
+                else if (lookahead.token == Token.CELL)
                 {
                         // argument -> VARIABLE
                         nextToken();

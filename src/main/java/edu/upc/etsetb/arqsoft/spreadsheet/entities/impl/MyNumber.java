@@ -5,13 +5,14 @@
  */
 package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Operand;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Value;
 
 /**
  *
  * @author sesan
  */
-public class MyNumber implements Value{
+public class MyNumber implements Value, Operand {
     
     private Double value;
 

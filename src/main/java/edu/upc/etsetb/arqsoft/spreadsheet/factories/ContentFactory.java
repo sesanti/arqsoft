@@ -6,10 +6,14 @@
 package edu.upc.etsetb.arqsoft.spreadsheet.factories;
 
 
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Component;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Spreadsheet;
 import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.Numerical;
+import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.SpreadsheetImpl;
 import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.Text;
 import edu.upc.etsetb.arqsoft.spreadsheet.services.Parser;
+import edu.upc.etsetb.arqsoft.spreadsheet.services.PostFixGenerator;
 import edu.upc.etsetb.arqsoft.spreadsheet.services.Token;
 import edu.upc.etsetb.arqsoft.spreadsheet.services.Tokenizer;
 
@@ -25,17 +29,21 @@ public class ContentFactory {
     private static final String REGEX_NUMBER = "\\-?\\d*\\,?\\d+";
     private Tokenizer tokenizer;
     private Parser parser;
-
+    private PostFixGenerator postFixGenerator;
+    private LinkedList<Component> components;
     public ContentFactory(){
         this.tokenizer = Tokenizer.getInstance();
         this.parser = new Parser();
+        this.postFixGenerator = new PostFixGenerator();
 
     }
 
-    public Content getInstance(String contentAsString){
+    public Content getInstance(String contentAsString, Spreadsheet spreadsheet){
         if(isFormula(contentAsString)){
             LinkedList<Token> tokens = tokenizer.tokenize(contentAsString);
             parser.parse(tokens);
+            components = postFixGenerator.postFixGenerator(tokens, spreadsheet);
+
 
             return null;
         } else if (isNumber(contentAsString)) {

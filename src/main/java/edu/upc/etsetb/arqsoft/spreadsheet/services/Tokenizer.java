@@ -35,7 +35,7 @@ public class Tokenizer {
         tokenizer.add(REGEX_OPEN_BRACKET, Token.OPEN_BRACKET);
         tokenizer.add(REGEX_CLOSE_BRACKET, Token.CLOSE_BRACKET);
         tokenizer.add( REGEX_NUMBER, Token.NUMBER);
-        tokenizer.add(REGEX_CELL, Token.VARIABLE);
+        tokenizer.add(REGEX_CELL, Token.CELL);
 
         return tokenizer;
     }

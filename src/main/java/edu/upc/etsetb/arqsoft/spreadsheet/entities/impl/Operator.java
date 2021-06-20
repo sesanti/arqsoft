@@ -12,11 +12,15 @@ import edu.upc.etsetb.arqsoft.spreadsheet.enties.Component;
  * @author sesan
  */
 public class Operator implements Component{
-    String operator;
-      
-    public Operator(){
-        
+    private String operator;
+
+    public Operator(String  operator){
+        this.operator = operator;
     }
-    
-    
+
+    public static Operator getInstance(String operator){
+        return new Operator(operator);
+
+    }
+
 }

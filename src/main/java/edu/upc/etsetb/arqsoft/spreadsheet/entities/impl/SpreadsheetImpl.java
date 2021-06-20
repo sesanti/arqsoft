@@ -42,6 +42,10 @@ public class SpreadsheetImpl implements Spreadsheet {
         return value;
     }
 
+    public CellImpl getCell(String coordinate){
+        return cellsMap.get(coordinate);
+    }
+
     public void setCellContent (String coordinate, Content content) {
         updateMaxRowColumn(coordinate);
 
@@ -89,4 +93,6 @@ public class SpreadsheetImpl implements Spreadsheet {
             this.maxColumn = columnInt;
         }
     }
+
+
 }

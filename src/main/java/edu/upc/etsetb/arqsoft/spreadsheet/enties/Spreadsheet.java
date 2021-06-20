@@ -5,6 +5,8 @@
  */
 package edu.upc.etsetb.arqsoft.spreadsheet.enties;
 
+import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.CellImpl;
+
 /**
  *
  * @author sesan
@@ -14,6 +16,8 @@ public interface Spreadsheet {
     public Double getCellValueAsDouble(String coordinate);
     
     public String getCellValueAsString(String coordinate);
+
+    public CellImpl getCell(String coordinate);
     
     //public Integer columnStringToNumber(String column);
     
