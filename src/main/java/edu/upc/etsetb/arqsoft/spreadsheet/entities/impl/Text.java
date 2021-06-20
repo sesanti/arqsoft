@@ -6,6 +6,9 @@
 package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
+import edu.upc.etsetb.arqsoft.spreadsheet.exceptions.NoNumberException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
  
 
 /**
@@ -39,10 +42,15 @@ public class Text implements Content{
     }
 
  
-    public Double getAsDouble() {
-        throw new UnsupportedOperationException("Impossible to return to double"); //To change body of generated methods, choose Tools | Templates.
+    public Double getAsDouble(){
+        if (this.myString.getValue().isEmpty()){
+            return 0.0;
+        }
+        else{
+            throw new NoNumberException("Impossible to return Text content as Double");
+        }     
+         
     }
-
  
     public String getAsString() {
         return this.myString.getValue();
