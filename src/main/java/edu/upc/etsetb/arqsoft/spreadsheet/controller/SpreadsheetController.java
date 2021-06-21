@@ -57,7 +57,7 @@ public class SpreadsheetController {
              throw new BadCoordinateException("Incorrect "+coordinate+ "coordinate.It must be capital letter + number starting with 1");
         }
 
-        Content content = contentFactory.getInstance(contentAsString);
+        Content content = contentFactory.getInstance(contentAsString, spreadsheet);
         spreadsheet.setCellContent(coordinate,content);
     }
 

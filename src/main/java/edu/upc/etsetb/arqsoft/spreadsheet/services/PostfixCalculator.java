@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ /**
 package edu.upc.etsetb.arqsoft.spreadsheet.services;
 
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Component;
@@ -13,6 +9,8 @@ import java.util.List;
  *
  * @author martacosano
  */
+
+ /**
 public class PostfixCalculator {
     private List<Component> postfixExpression;
     private List<Component> stack;
@@ -38,15 +36,15 @@ public class PostfixCalculator {
                 
             }     
         }
-        finalElem= stack.get(0);val
+        finalElem= stack.get(0);
         return finalElem;
     }
     public MyNumber computeResult(Component numLeft, Component operator, Component numRight){
         /*numLeft*/
        // fer switch case per cada cas de operator
-    }
-}
-            //elem.getType()
+    //}
+//}
+              //elem.getType()
             /*if elem.getType is number
                 stack.add(elem);
                else (is operator){
@@ -55,4 +53,4 @@ public class PostfixCalculator {
                operator = elem
                MyNumber result = secondelemfirstelem;
                         
-     
+     **/
