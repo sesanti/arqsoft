@@ -94,5 +94,31 @@ public class SpreadsheetImpl implements Spreadsheet {
         }
     }
 
+    public void addRows(int newFilas, int newColumns){ //servira per ensenyarho tipo taula
 
+        for(int i= this.maxRow+1; i<=newFilas; i++){
+            for(int j=1;j<=newColumns; j++){
+                String coordinate=concatString(columnNumberToString(j),String.valueOf(i));
+                CellImpl cell = CellFactory.getInstance(null);
+                cellsMap.put(coordinate, cell);
+            }
+        }
+    }
+
+    public void addColumns(int newFilas, int newColumns){ ////servira per ensenyarho tipo taula
+        for(int i= this.maxColumn+1; i<=newColumns; i++){
+            for(int j=1;j<=newFilas; j++){
+                String coordinate=concatString(columnNumberToString(j),String.valueOf(i));
+                CellImpl cell = CellFactory.getInstance(null);
+                cellsMap.put(coordinate, cell);
+            }
+        }
+
+    }
+
+    public void printSpreadsheet(){
+       for( Map.Entry<String, CellImpl> entry : cellsMap.entrySet() ){
+            System.out.println( entry.getKey() + " => " + entry.getValue().getContentValueAsString() );
+        }
+    }
 }
