@@ -77,4 +77,15 @@ public class CellImpl implements Cell, Operand {
     public List getIDepend(){
         return this.iDepend;
     }
+
+    @Override
+    public String getValueAsString() {
+        return this.getContentValueAsString(); 
+    }
+
+    @Override
+    public Double getValueAsDouble() {
+       return this.getContentValueAsDouble();
+    }
+    
 }

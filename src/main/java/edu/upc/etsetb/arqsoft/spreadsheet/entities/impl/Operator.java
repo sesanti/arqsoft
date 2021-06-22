@@ -6,6 +6,7 @@
 package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Component;
+import edu.upc.etsetb.arqsoft.spreadsheet.exceptions.NoNumberException;
 
 /**
  *
@@ -21,6 +22,21 @@ public class Operator implements Component{
     public static Operator getInstance(String operator){
         return new Operator(operator);
 
+    }
+    
+    @Override
+    public String getValueAsString(){
+        return this.operator;
+    }
+    
+    public Component getComponent(){
+        return this;
+        
+    }
+
+    @Override
+    public Double getValueAsDouble() {
+        throw new NoNumberException("Impossible to return Operator value as Double"); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -12,6 +12,10 @@ import edu.upc.etsetb.arqsoft.spreadsheet.exceptions.BadCoordinateException;
 import edu.upc.etsetb.arqsoft.spreadsheet.exceptions.NoNumberException;
 
 import edu.upc.etsetb.arqsoft.spreadsheet.factories.ContentFactory;
+import edu.upc.etsetb.arqsoft.spreadsheet.services.Parser;
+import edu.upc.etsetb.arqsoft.spreadsheet.services.PostFixGenerator;
+import edu.upc.etsetb.arqsoft.spreadsheet.services.PostfixCalculator;
+import edu.upc.etsetb.arqsoft.spreadsheet.services.Tokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,6 +26,10 @@ public class SpreadsheetController {
 
     private Spreadsheet spreadsheet;
     private ContentFactory contentFactory;
+    private PostfixCalculator postfixCalculator;
+    private Tokenizer tokenizer;
+    private Parser parser;
+    private PostFixGenerator postfixGenerator;
 
     public SpreadsheetController(){
         this.contentFactory = new ContentFactory();
@@ -52,6 +60,7 @@ public class SpreadsheetController {
 
     public void setCellContent(String coordinate, String contentAsString)throws BadCoordinateException{
       //TODO create ContentException
+       
 
         if(!isCoordinateCorrect(coordinate)){
              throw new BadCoordinateException("Incorrect "+coordinate+ "coordinate.It must be capital letter + number starting with 1");
