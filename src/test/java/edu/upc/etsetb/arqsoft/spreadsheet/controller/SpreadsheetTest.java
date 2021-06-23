@@ -100,7 +100,9 @@ public class SpreadsheetTest {
         this.instance.editSpreadsheet("C20", "=1/2");
         this.instance.editSpreadsheet("B1", "=C20+2*10");
         double content = this.instance.getCellContentAsDouble("B1");
+        //double content = this.instance.getCellContentAsDouble("C20");
         Assert.assertEquals(20.5, content, 0.0);
+        //Assert.assertEquals(0.5, content, 0.0);
     }
 
     @Test

@@ -29,10 +29,10 @@ public class PostFixGenerator {
 
 
         while(!this.tokens.isEmpty()) {
-            for(int i=0;i<this.tokens.size();i++){
+            /*for(int i=0;i<this.tokens.size();i++){
                 System.out.println(this.tokens.get(i).sequence);
                 System.out.println(tokens.get(i).sequence);
-            }
+            }*/
             token = this.tokens.pop();
             //System.out.println(token.sequence);
 
@@ -48,13 +48,13 @@ public class PostFixGenerator {
                 }
                 operatorStack.push(component);
                 operatorStackToken.push(token);
-            } else if (isOpenBracket(token)) {
+            } else if (isOpenBracket(token)) {  //mirar bien puede petar
                 operatorStack.push(component);
                 operatorStackToken.push(token);
 
             } else if (isClosedBracket(token)) {
                 while (!operatorStack.isEmpty() && isOpenBracket(operatorStackToken.peek()) == false) {
-                    outputStack.push(operatorStack.pop());
+                    outputStack.add(operatorStack.pop());
                     operatorStackToken.pop();
                 }
 
@@ -62,7 +62,7 @@ public class PostFixGenerator {
                 operatorStackToken.pop();
 
             } else { // operand de momento numero
-                outputStack.push(component);
+                outputStack.add(component);
             }
         }
 
@@ -70,7 +70,7 @@ public class PostFixGenerator {
             if (isOpenBracket(operatorStackToken.peek())){
                 throw new RuntimeException(); //Poner excepcion invalidka
             }
-            outputStack.push(operatorStack.pop());
+            outputStack.add(operatorStack.pop());
             operatorStackToken.pop();
 
 
