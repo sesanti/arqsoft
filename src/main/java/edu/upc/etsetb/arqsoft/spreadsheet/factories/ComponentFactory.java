@@ -17,6 +17,7 @@ public class ComponentFactory {
                 return Operator.getInstance(token.sequence);
 
             } else if(isNumber(token)) {
+
                 return MyNumber.getInstance(token.sequence);
             }else if(isCell(token)){
                 return spreadsheet.getCell(token.sequence);
