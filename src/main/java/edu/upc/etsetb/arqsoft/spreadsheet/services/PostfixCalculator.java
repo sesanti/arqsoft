@@ -32,6 +32,8 @@ public class PostfixCalculator {
         while( i < postfixExpression.size()){
             Component elem= postfixExpression.get(i);
             
+            System.out.println("postifexpression");
+            System.out.println(elem.getValueAsString());
             if(!this.isOperator(elem)){ //Operand 
               
                 stack.add(elem);    
@@ -45,6 +47,7 @@ public class PostfixCalculator {
                 Component result= computeResult(bottomNumber, elem, topNumber );
                 stack.add(result);
             }
+            i++;
         }
         
         Component finalElem= stack.get(0);
