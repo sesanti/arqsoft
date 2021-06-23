@@ -11,4 +11,7 @@ package edu.upc.etsetb.arqsoft.spreadsheet.enties;
  */
 public interface Operand extends Component {
     
+    @Override
+    public String getValueAsString();
+    
 }

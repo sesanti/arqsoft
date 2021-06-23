@@ -23,5 +23,15 @@ public class Promedio implements Function {
     public Double promedio(List<Argument> arguments){  
         throw new UnsupportedOperationException("Promedio::promedio(arguments): Unsopported Method");
     }
+
+    @Override
+    public String getValueAsString() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Double getValueAsDouble() {
+        throw new UnsupportedOperationException("Promedio::getValueAsDouble: Unsopported Method"); //To change body of generated methods, choose Tools | Templates.
+    }
  
 }

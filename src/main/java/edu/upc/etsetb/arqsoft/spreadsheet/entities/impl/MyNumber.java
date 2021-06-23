@@ -31,4 +31,13 @@ public class MyNumber implements Value, Operand {
     public Double getValue() {
         return value;
     }
+    
+    public String getValueAsString(){
+        return value.toString();
+    }
+
+    @Override
+    public Double getValueAsDouble() {
+        return getValue(); //To change body of generated methods, choose Tools | Templates.
+    }
 }
