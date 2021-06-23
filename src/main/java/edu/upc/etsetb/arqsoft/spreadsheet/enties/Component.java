@@ -10,6 +10,8 @@ package edu.upc.etsetb.arqsoft.spreadsheet.enties;
  * @author sesan
  */
 public interface Component {
-
     
+    public String getValueAsString();
+    
+    public Double getValueAsDouble();
 }
