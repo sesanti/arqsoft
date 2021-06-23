@@ -5,6 +5,8 @@
  */
 package edu.upc.etsetb.arqsoft.spreadsheet.enties;
 
+import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.MyNumber;
+
 /**
  *
  * @author sesan
@@ -15,3 +17,4 @@ public interface Component {
     
     public Double getValueAsDouble();
 }
+
