@@ -9,10 +9,7 @@ package edu.upc.etsetb.arqsoft.spreadsheet.factories;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Component;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Spreadsheet;
-import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.Formula;
-import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.Numerical;
-import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.SpreadsheetImpl;
-import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.Text;
+import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.*;
 import edu.upc.etsetb.arqsoft.spreadsheet.services.*;
 
 import java.util.LinkedList;
@@ -46,8 +43,8 @@ public class ContentFactory {
             LinkedList<Token> tokens = tokenizer.tokenize(contentAsString.substring(1));
             parser.parse(tokens);
             components = postFixGenerator.postFixGenerator(tokens, spreadsheet);
-            postfixCalculator.postfixEvaluation(components);
-            return Formula.getInstance(postfixCalculator.postfixEvaluation(components),components,contentAsString);
+            MyNumber result = postfixCalculator.postfixEvaluation(components);
+            return Formula.getInstance(result,components,contentAsString);
 
         } else if (isNumber(contentAsString)) {
             return Numerical.getInstance(contentAsString); // crea nuevo numerical a partr de string input

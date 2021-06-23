@@ -14,18 +14,28 @@ public class PostFixGenerator {
     LinkedList<Component> operatorStack;
     ComponentFactory componentFactory;
     Spreadsheet spreadsheet;
+    public PostFixGenerator(){
+        this.outputStack = new LinkedList<>();
+        this.operatorStackToken = new LinkedList<>();
+        this.operatorStack = new LinkedList<>();
+        this.componentFactory = new ComponentFactory();
 
+    }
 
     public LinkedList<Component> postFixGenerator(LinkedList<Token> tokens, Spreadsheet spreadsheet){
 
         this.tokens=(LinkedList) ((LinkedList) tokens).clone();
         this.spreadsheet = spreadsheet;
-        outputStack = new LinkedList<>();
-        operatorStackToken = new LinkedList<>();
-        operatorStack = new LinkedList<>();
+
 
         while(!this.tokens.isEmpty()) {
-            token = tokens.pop();
+            for(int i=0;i<this.tokens.size();i++){
+                System.out.println(this.tokens.get(i).sequence);
+                System.out.println(tokens.get(i).sequence);
+            }
+            token = this.tokens.pop();
+            //System.out.println(token.sequence);
+
             Component component = componentFactory.getInstance(token,spreadsheet);//crear componente le paso spreadsheet para poder coger los values de las celdas
 
             if (isOperator(token)) {
