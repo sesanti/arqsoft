@@ -15,7 +15,7 @@ import java.util.List;
 
  
 public class PostfixCalculator {
-    public List<Component> postfixExpression;
+    private List<Component> postfixExpression;
     private List<Component> stack;
     
     
@@ -25,7 +25,7 @@ public class PostfixCalculator {
     }
     
     
-    public static MyNumber postfixEvaluation(List<Component> postfixExpression){
+    public MyNumber postfixEvaluation(List<Component> postfixExpression){
         
         int i=0;
         
@@ -33,13 +33,13 @@ public class PostfixCalculator {
             Component elem= postfixExpression.get(i);
             
             if(!this.isOperator(elem)){ //Operand 
-                System.out.println("Operand",elem);
+              
                 stack.add(elem);    
             
             }else{ //Operator
-                System.out.println("Operator",elem);
+             
                 Component topNumber =stack.get(stack.size()-1);
-                Component bottomNumber =stack.get( stack.size()-2);
+                Component bottomNumber =stack.get( stack.size()-1);
                 stack.remove(stack.size()-1);
                 stack.remove(stack.size()-1);
                 Component result= computeResult(bottomNumber, elem, topNumber );
@@ -48,8 +48,8 @@ public class PostfixCalculator {
         }
         
         Component finalElem= stack.get(0);
-        return finalElem;
-        System.out.print(finalElem);
+        MyNumber myNumberResult = MyNumber.getInstance(finalElem.getValueAsString()); 
+        return myNumberResult;
     }
     
     
@@ -65,6 +65,7 @@ public class PostfixCalculator {
       
         return operators.contains(comp_string);   
     }
+    
     
     private MyNumber computeResult(Component numLeft, Component operator, Component numRight){
      
@@ -93,25 +94,3 @@ public class PostfixCalculator {
     }
     
 }
-            
-            /*
-            if( elem == Operator.{
-                stack.add(elem);   //is a number: push to stack
-            }
-            else{
-                topNumber =stack.get(stack.size()-1);
-                bottomNumber =stack.get( stack.size()-2);
-                stack.remove(stack.size()-1);
-                stack.remove(stack.size()-1);
-                result= computeResult(bottomNumber, elem, topNumber );
-                stack.add(result);
-                
-            }     
-        }
-        finalElem= stack.get(0);
-        return finalElem;
-            
-        }
-        
-    }
-   
