@@ -26,6 +26,12 @@ public class PostFixGenerator {
 
         this.tokens=(LinkedList) ((LinkedList) tokens).clone();
         this.spreadsheet = spreadsheet;
+        if(!outputStack.isEmpty()){
+            this.operatorStackToken.clear();
+            this.operatorStack.clear();
+            this.outputStack.clear();
+
+        }
 
 
         while(!this.tokens.isEmpty()) {
