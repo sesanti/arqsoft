@@ -128,6 +128,12 @@ public class SpreadsheetTest {
         this.instance.editSpreadsheet("B4", "=A1*10-5");
         double content = this.instance.getCellContentAsDouble("B4");
         Assert.assertEquals(5.0, content, 0.0);
+
+
+
+
+
+
     }
     @Test
     public void test07SetCellContent_Formula_Numbers_CellRefs_1LevelRBs() throws Exception {
