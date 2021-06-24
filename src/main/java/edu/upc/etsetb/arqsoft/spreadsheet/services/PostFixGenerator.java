@@ -64,7 +64,7 @@ public class PostFixGenerator {
                     operatorStackToken.pop();
                 }
 
-                operatorStack.pop(); //puede que tenga q ir dentro del while
+                operatorStack.pop();
                 operatorStackToken.pop();
 
             } else { // operand de momento numero
