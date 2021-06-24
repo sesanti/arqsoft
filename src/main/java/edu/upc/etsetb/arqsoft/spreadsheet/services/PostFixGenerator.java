@@ -49,7 +49,7 @@ public class PostFixGenerator {
                     // peek() inbuilt stack function to
                     // fetch the top element(token)
 
-                    outputStack.push(operatorStack.pop());
+                    outputStack.add(operatorStack.pop());
                     operatorStackToken.pop();
                 }
                 operatorStack.push(component);
