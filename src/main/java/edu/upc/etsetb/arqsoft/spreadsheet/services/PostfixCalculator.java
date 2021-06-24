@@ -6,6 +6,7 @@ import edu.upc.etsetb.arqsoft.spreadsheet.enties.Operand;
 import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.MyNumber;
 import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.Operator;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /*
@@ -16,36 +17,40 @@ import java.util.List;
  
 public class PostfixCalculator {
     private List<Component> postfixExpression;
-    private List<Component> stack;
+   
     
     
     public PostfixCalculator(){
         this.postfixExpression = new ArrayList<>();
-        this.stack = new ArrayList<>();
+        
     }
     
     
     public MyNumber postfixEvaluation(List<Component> postfixExpression){
+        //inicialitza el stack perq sem crea buida
+    //    LinkedList<Component> stack = new LinkedList<>();
+        List<Component> stack = new ArrayList<>();
         
         int i=0;
-        
+        System.out.println("postifexpression");
+        System.out.println(postfixExpression.size());
         while( i < postfixExpression.size()){
             Component elem= postfixExpression.get(i);
             
-            System.out.println("postifexpression");
-            System.out.println(elem.getValueAsString());
-            if(!this.isOperator(elem)){ //Operand 
-              
-                stack.add(elem);    
-            
-            }else{ //Operator
+            if(this.isOperator(elem)){ //operator
              
-                Component topNumber =stack.get(stack.size()-1);
-                Component bottomNumber =stack.get( stack.size()-1);
-                stack.remove(stack.size()-1);
-                stack.remove(stack.size()-1);
+               // Component topNumber =stack.pop();
+               // Component bottomNumber =stack.pop();
+                Component topNumber =stack.remove(stack.size()-1);
+                Component bottomNumber =stack.remove(stack.size()-1);
                 Component result= computeResult(bottomNumber, elem, topNumber );
                 stack.add(result);
+                
+                
+            }else{ //Operand: Number, cell, rangeofcells, functions
+             
+                stack.add(elem);
+              
             }
             i++;
         }
@@ -59,14 +64,16 @@ public class PostfixCalculator {
     private Boolean isOperator(Component component){
         
         String comp_string = component.getValueAsString();
+        String operatorsAvailable ="+-*/";
+        operatorsAvailable.contains(comp_string);
+     
+        if(operatorsAvailable.contains(comp_string)){
+            return true;
+        }else{
+            return false;
+        }
         
-        List operators= new ArrayList();
-        operators.add("+");
-        operators.add("-");
-        operators.add("*");
-        operators.add("/");
-      
-        return operators.contains(comp_string);   
+        
     }
     
     

@@ -13,10 +13,10 @@ import edu.upc.etsetb.arqsoft.spreadsheet.exceptions.NoNumberException;
  * @author sesan
  */
 public class Operator implements Component{
-    private String operator;
+    private String operatorString;
 
-    public Operator(String  operator){
-        this.operator = operator;
+    public Operator(String  operatorString){
+        this.operatorString = operatorString;
     }
 
     public static Operator getInstance(String operator){
@@ -26,7 +26,7 @@ public class Operator implements Component{
     
     @Override
     public String getValueAsString(){
-        return this.operator;
+        return this.operatorString;
     }
     
     public Component getComponent(){

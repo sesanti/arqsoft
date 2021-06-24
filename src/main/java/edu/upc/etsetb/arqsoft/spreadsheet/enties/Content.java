@@ -14,7 +14,7 @@ public interface Content {
     public Content getContent();
     public void setContent(Content content);
     public Double getAsDouble(); //value
-    public String getAsString(); //value
+    public String getAsString(); //value or FormulaOrigninalString
     public Value getValue(); //?
            
     

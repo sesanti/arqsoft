@@ -82,8 +82,10 @@ public class SpreadsheetImpl implements Spreadsheet {
 
     public void updateMaxRowColumn(String coordinate) {
         String columnString = coordinate.split("")[0];
-        int row = Integer.parseInt(coordinate.split("")[1]);
+        int row = Integer.parseInt(coordinate.split("")[1]); //todo
+        
         int columnInt = columnStringToNumber(columnString);
+        
 
         if (row > this.maxRow) {
             this.maxRow = row;

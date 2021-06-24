@@ -57,10 +57,12 @@ public class CellImpl implements Cell, Operand {
         return this.content.getValue();
     }
 
+    @Override
     public Double getContentValueAsDouble() {
         return this.content.getAsDouble();
     }
 
+    @Override
     public String getContentValueAsString() {
         return this.content.getAsString();
     }
@@ -80,7 +82,7 @@ public class CellImpl implements Cell, Operand {
 
     @Override
     public String getValueAsString() {
-        return this.getContentValueAsString(); 
+        return this.content.getAsDouble().toString();
     }
 
     @Override

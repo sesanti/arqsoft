@@ -32,6 +32,7 @@ public class MyNumber implements Value, Operand {
         return value;
     }
     
+    @Override
     public String getValueAsString(){
         return value.toString();
     }
