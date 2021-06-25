@@ -15,9 +15,13 @@ import edu.upc.etsetb.arqsoft.spreadsheet.factories.ContentFactory;
 import edu.upc.etsetb.arqsoft.spreadsheet.services.Parser;
 import edu.upc.etsetb.arqsoft.spreadsheet.services.PostFixGenerator;
 import edu.upc.etsetb.arqsoft.spreadsheet.services.PostfixCalculator;
+import edu.upc.etsetb.arqsoft.spreadsheet.services.SpreadsheetSaver;
 import edu.upc.etsetb.arqsoft.spreadsheet.services.Tokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * @author martacosano
@@ -30,7 +34,9 @@ public class SpreadsheetController {
     private Tokenizer tokenizer;
     private Parser parser;
     private PostFixGenerator postfixGenerator;
-
+    private SpreadsheetSaver spreadsheetSaver;
+   
+    
     public SpreadsheetController(){
         this.contentFactory = new ContentFactory();
         createNewSpreadsheet();
@@ -38,6 +44,37 @@ public class SpreadsheetController {
 
     private void createNewSpreadsheet() {
         this.spreadsheet = new SpreadsheetImpl();
+    }
+    
+    public void tryToLoad(String path) throws IOException, FileNotFoundException, BadCoordinateException{
+     
+        createNewSpreadsheet(); //si l'usuari ve de editCell i no creo un Spreadsheet treballarà sobre el mateix    
+        File file = new File(path);    //creates a new file instance  
+        FileReader fr = new FileReader(file);   //reads the file  
+        BufferedReader br = new BufferedReader(fr);  //creates a buffering character input stream  
+    
+        String firstRow, line;
+        String[] columns;
+        int lastcolumn = 0;
+        int numRow = 0;
+        
+        while((line = br.readLine()) != null){ 
+            numRow++;
+            columns = line.split(";");
+            lastcolumn = columns.length;
+            
+            for( int i = 0; i < lastcolumn; i++){
+                if(!columns[i].isEmpty()){
+                    System.out.println("col"+ i+1+ "row"+ numRow +"content"+columns[i]);
+                    String coordinate = buildCoordinate(i+1, numRow);
+                    setCellContent(coordinate, columns[i]);
+                }
+            }
+                   
+        }       
+                
+        
+         
     }
 
     public String getCellContentAsString(String coordinate)throws BadCoordinateException{
@@ -60,8 +97,7 @@ public class SpreadsheetController {
 
     public void setCellContent(String coordinate, String contentAsString)throws BadCoordinateException{
       //TODO create ContentException
-       
-
+      
         if(!isCoordinateCorrect(coordinate)){
              throw new BadCoordinateException("Incorrect "+coordinate+ "coordinate.It must be capital letter + number starting with 1");
         }
@@ -81,6 +117,15 @@ public class SpreadsheetController {
         }
         return true;
     }
+    
+    
+    private String buildCoordinate(int column, int row){    
+        String columnString;
+        columnString = String.valueOf((char) (column + 'A' - 1));       
+        String coordinate = columnString + String.valueOf(row);
+        return coordinate;
+    }
+    
 
     public void editSpreadsheet(String coordinate, String contentAsString) throws BadCoordinateException { //Content content
         
