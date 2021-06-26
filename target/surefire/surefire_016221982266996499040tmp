@@ -1,0 +1,7 @@
+#surefire_0
+#Sat Jun 26 11:13:00 CEST 2021
+basedir=/home/martacosano/Escritorio/arqsoft
+test=edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest
+user.dir=/home/martacosano/Escritorio/arqsoft
+maven.ext.class.path=/home/martacosano/netbeans-12.2/netbeans/java/maven-nblib/netbeans-eventspy.jar
+localRepository=/home/martacosano/.m2/repository
