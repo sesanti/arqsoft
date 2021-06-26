@@ -8,9 +8,13 @@ package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Spreadsheet;
 import edu.upc.etsetb.arqsoft.spreadsheet.factories.CellFactory;
+import java.util.ArrayList;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * @author sesan
@@ -59,16 +63,17 @@ public class SpreadsheetImpl implements Spreadsheet {
             cell.setContent(content);
 
         }
+      //  printSpreadsheet();
     }
 
-    public static String columnNumberToString(int column) {
+    public String columnNumberToString(int column) {
         return String.valueOf((char) (column + 'A' - 1));
 
 
     }
 
 
-    public static int columnStringToNumber(String column) {
+    public int columnStringToNumber(String column) {
         char column_char = column.charAt(0);
         int number = column_char - 'A' + 1;
 
@@ -76,16 +81,16 @@ public class SpreadsheetImpl implements Spreadsheet {
 
     }
 
-    public static String concatString(String column, String row) {
+    public String concatString(String column, String row) {
         return column + row;
     }
 
     public void updateMaxRowColumn(String coordinate) {
-        String columnString = coordinate.split("")[0];
-        int row = Integer.parseInt(coordinate.split("")[1]); //todo
         
-        int columnInt = columnStringToNumber(columnString);
-        
+        String columnString =coordinate.replaceAll("[^a-zA-Z].*", "");
+        String numberOnly = coordinate.replaceAll("\\D+", "");
+        int row = Integer.parseInt(numberOnly); 
+        int columnInt = columnStringToNumber(columnString);   
 
         if (row > this.maxRow) {
             this.maxRow = row;
@@ -95,6 +100,37 @@ public class SpreadsheetImpl implements Spreadsheet {
             this.maxColumn = columnInt;
         }
     }
+      
+    public int getMaxRow(){
+        return this.maxRow; 
+    }
+    public int getMaxColumn(){
+        return this.maxColumn; 
+    }
+    
+   
+    public String[][] getSpreadsheetAsMatrix(){
+        
+        String [][] matrixSpreadsheet = new String[this.maxRow+1][this.maxColumn+1]; //no tinc en compte 0,0
+   
+        Set<String> allCoordinates = this.cellsMap.keySet();
+          
+        for ( String coordinate: allCoordinates){
+            
+            String contentCell  = getCellValueAsString(coordinate);
+            String columnString =coordinate.replaceAll("[^a-zA-Z].*", "");
+            int column = columnStringToNumber(columnString);
+            int row = Integer.parseInt(coordinate.replaceAll("\\D+", ""));
+            
+             
+            matrixSpreadsheet[row][column] = contentCell; //A21= 21-->[21][1]= 21.0
+        }
+        
+        return matrixSpreadsheet;
+              
+    }
+        
+    
 
     public void addRows(int newFilas, int newColumns){ //servira per ensenyarho tipo taula
 
@@ -117,34 +153,12 @@ public class SpreadsheetImpl implements Spreadsheet {
         }
 
     }
+  
 
     public void printSpreadsheet(){
-       for( Map.Entry<String, CellImpl> entry : cellsMap.entrySet() ){
+       for( Map.Entry<String, CellImpl> entry : this.cellsMap.entrySet() ){
             System.out.println( entry.getKey() + " => " + entry.getValue().getContentValueAsString() );
         }
-    }
-    
-    public int getMaxRow(){
-        return this.maxRow; 
-    }
-    public int getMaxColumn(){
-        return this.maxColumn; 
-    }
-
-    @Override
-    public void getRowsSpreadsheet() {
-           
-       String [][] arr = new String[this.maxColumn][this.maxRow];
-       for(int i=1; i<= this.maxColumn; i++){
-          for (int j= 1; j <= this.maxRow ; j++){         
-         //     passar la columan i a numero  buscar la coordenada i si te contingut apuntar el string }    
-      //  o fer una llista de key i per cada key dividir la coordenada
-          //}
-      
-     //   SortedSet<String> keys = new TreeSet<>(this.cellsMap.keySet());
-      //  for (String key : keys) { 
-       //     System.out.println( keys); //A1 A10 A11-- A2 A20 A21 
-        
-          }}   
+       //usar la matriu de la funcio per printar els valors com matriu
     }
 }

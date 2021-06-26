@@ -1,14 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest
 -------------------------------------------------------------------------------
-Tests run: 13, Failures: 1, Errors: 4, Skipped: 0, Time elapsed: 0.176 sec <<< FAILURE!
-test09SetCellContent_Formula_Numbers_CellRefs_Func_NumArgs(edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest)  Time elapsed: 0.008 sec  <<< ERROR!
+Tests run: 13, Failures: 1, Errors: 4, Skipped: 0, Time elapsed: 0.171 sec <<< FAILURE!
+test09SetCellContent_Formula_Numbers_CellRefs_Func_NumArgs(edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest)  Time elapsed: 0.005 sec  <<< ERROR!
 jdk.nashorn.internal.runtime.ParserException: Unexpected character in input: ;2;3;4;5)
 	at edu.upc.etsetb.arqsoft.spreadsheet.services.Tokenizer.tokenize(Tokenizer.java:68)
 	at edu.upc.etsetb.arqsoft.spreadsheet.factories.ContentFactory.getInstance(ContentFactory.java:43)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.setCellContent(SpreadsheetController.java:108)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.editSpreadsheet(SpreadsheetController.java:142)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest.test09SetCellContent_Formula_Numbers_CellRefs_Func_NumArgs(SpreadsheetTest.java:171)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.setCellContent(SpreadsheetController.java:115)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.editSpreadsheet(SpreadsheetController.java:149)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest.test09SetCellContent_Formula_Numbers_CellRefs_Func_NumArgs(SpreadsheetTest.java:159)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -43,13 +43,13 @@ jdk.nashorn.internal.runtime.ParserException: Unexpected character in input: ;2;
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-test10SetCellContent_Formula_Numbers_CellRefs_Func_NumCellRefsArgs(edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest)  Time elapsed: 0.002 sec  <<< ERROR!
+test10SetCellContent_Formula_Numbers_CellRefs_Func_NumCellRefsArgs(edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest)  Time elapsed: 0.001 sec  <<< ERROR!
 jdk.nashorn.internal.runtime.ParserException: Unexpected character in input: ;A2;3;4;5)
 	at edu.upc.etsetb.arqsoft.spreadsheet.services.Tokenizer.tokenize(Tokenizer.java:68)
 	at edu.upc.etsetb.arqsoft.spreadsheet.factories.ContentFactory.getInstance(ContentFactory.java:43)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.setCellContent(SpreadsheetController.java:108)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.editSpreadsheet(SpreadsheetController.java:142)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest.test10SetCellContent_Formula_Numbers_CellRefs_Func_NumCellRefsArgs(SpreadsheetTest.java:181)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.setCellContent(SpreadsheetController.java:115)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.editSpreadsheet(SpreadsheetController.java:149)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest.test10SetCellContent_Formula_Numbers_CellRefs_Func_NumCellRefsArgs(SpreadsheetTest.java:169)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -88,9 +88,9 @@ test11SetCellContent_Formula_Numbers_CellRefs_Func_NumCellRefsRangesArgs(edu.upc
 jdk.nashorn.internal.runtime.ParserException: Unexpected character in input: ;A2;3;4;5;A6:A12)
 	at edu.upc.etsetb.arqsoft.spreadsheet.services.Tokenizer.tokenize(Tokenizer.java:68)
 	at edu.upc.etsetb.arqsoft.spreadsheet.factories.ContentFactory.getInstance(ContentFactory.java:43)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.setCellContent(SpreadsheetController.java:108)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.editSpreadsheet(SpreadsheetController.java:142)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest.test11SetCellContent_Formula_Numbers_CellRefs_Func_NumCellRefsRangesArgs(SpreadsheetTest.java:191)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.setCellContent(SpreadsheetController.java:115)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.editSpreadsheet(SpreadsheetController.java:149)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest.test11SetCellContent_Formula_Numbers_CellRefs_Func_NumCellRefsRangesArgs(SpreadsheetTest.java:179)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -125,13 +125,13 @@ jdk.nashorn.internal.runtime.ParserException: Unexpected character in input: ;A2
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-test12SetCellContent_AutomaticUpdateOfCellValues_DirectlyImpacted(edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest)  Time elapsed: 0.002 sec  <<< FAILURE!
+test12SetCellContent_AutomaticUpdateOfCellValues_DirectlyImpacted(edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest)  Time elapsed: 0.003 sec  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<12.0> but was:<13.0>
 	at junit.framework.Assert.fail(Assert.java:57)
 	at junit.framework.Assert.failNotEquals(Assert.java:329)
 	at junit.framework.Assert.assertEquals(Assert.java:120)
 	at junit.framework.Assert.assertEquals(Assert.java:129)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest.test12SetCellContent_AutomaticUpdateOfCellValues_DirectlyImpacted(SpreadsheetTest.java:206)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest.test12SetCellContent_AutomaticUpdateOfCellValues_DirectlyImpacted(SpreadsheetTest.java:194)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -170,9 +170,9 @@ test13SetCellContent_AutomaticUpdateOfCellValues_IndirectlyImpacted(edu.upc.etse
 jdk.nashorn.internal.runtime.ParserException: Unexpected character in input: ;A9)
 	at edu.upc.etsetb.arqsoft.spreadsheet.services.Tokenizer.tokenize(Tokenizer.java:68)
 	at edu.upc.etsetb.arqsoft.spreadsheet.factories.ContentFactory.getInstance(ContentFactory.java:43)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.setCellContent(SpreadsheetController.java:108)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.editSpreadsheet(SpreadsheetController.java:142)
-	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest.test13SetCellContent_AutomaticUpdateOfCellValues_IndirectlyImpacted(SpreadsheetTest.java:214)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.setCellContent(SpreadsheetController.java:115)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetController.editSpreadsheet(SpreadsheetController.java:149)
+	at edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest.test13SetCellContent_AutomaticUpdateOfCellValues_IndirectlyImpacted(SpreadsheetTest.java:202)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

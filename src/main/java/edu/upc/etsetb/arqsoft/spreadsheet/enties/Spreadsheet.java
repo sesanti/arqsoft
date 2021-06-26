@@ -27,5 +27,8 @@ public interface Spreadsheet {
     
     public void setCellContent(String string, Content content);
 
-    public void getRowsSpreadsheet();
+    public String[][] getSpreadsheetAsMatrix();
+    
+    public int getMaxColumn();
+    public int getMaxRow();
 }

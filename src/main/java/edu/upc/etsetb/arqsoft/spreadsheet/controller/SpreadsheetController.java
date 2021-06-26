@@ -65,7 +65,6 @@ public class SpreadsheetController {
             
             for( int i = 0; i < lastcolumn; i++){
                 if(!columns[i].isEmpty()){
-                    System.out.println("col"+ i+1+ "row"+ numRow +"content"+columns[i]);
                     String coordinate = buildCoordinate(i+1, numRow);
                     setCellContent(coordinate, columns[i]);
                 }
@@ -78,9 +77,14 @@ public class SpreadsheetController {
     }
     
       
-    public void saveSpreadsheet(String path) throws IOException{
+    public void saveSpreadsheetToExistingFile(String path) throws IOException{
        this.spreadsheetSaver = new SpreadsheetSaver();
-       this.spreadsheetSaver.saveSpreadsheeToFile(this.spreadsheet, path);
+       this.spreadsheetSaver.saveSpreadsheeToExistingFile(this.spreadsheet, path);
+    }
+    
+     public void saveSpreadsheetToNewFile(String filename, String path) throws IOException{
+       this.spreadsheetSaver = new SpreadsheetSaver();
+       this.spreadsheetSaver.createNewFileAndSave(this.spreadsheet,filename, path);
     }
 
     public String getCellContentAsString(String coordinate)throws BadCoordinateException{
