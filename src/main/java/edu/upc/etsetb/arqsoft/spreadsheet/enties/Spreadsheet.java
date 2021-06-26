@@ -26,4 +26,6 @@ public interface Spreadsheet {
     //public String concatString(String row, String column);
     
     public void setCellContent(String string, Content content);
+
+    public void getRowsSpreadsheet();
 }

@@ -1,0 +1,11 @@
+#surefire_0
+#Thu Jun 24 23:58:29 CEST 2021
+basedir=/home/martacosano/Escritorio/arqsoft
+jpda.address=59737
+test=edu.upc.etsetb.arqsoft.spreadsheet.controller.SpreadsheetTest
+user.dir=/home/martacosano/Escritorio/arqsoft
+forkMode=once
+jpda.listen=true
+maven.surefire.debug=-agentlib\:jdwp\=transport\=dt_socket,server\=n,address\=59737
+maven.ext.class.path=/home/martacosano/netbeans-12.2/netbeans/java/maven-nblib/netbeans-eventspy.jar
+localRepository=/home/martacosano/.m2/repository

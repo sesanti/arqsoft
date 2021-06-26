@@ -76,6 +76,12 @@ public class SpreadsheetController {
         
          
     }
+    
+      
+    public void saveSpreadsheet(String path) throws IOException{
+       this.spreadsheetSaver = new SpreadsheetSaver();
+       this.spreadsheetSaver.saveSpreadsheeToFile(this.spreadsheet, path);
+    }
 
     public String getCellContentAsString(String coordinate)throws BadCoordinateException{
 

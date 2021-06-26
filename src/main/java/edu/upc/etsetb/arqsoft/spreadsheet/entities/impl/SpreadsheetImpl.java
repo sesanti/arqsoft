@@ -123,4 +123,28 @@ public class SpreadsheetImpl implements Spreadsheet {
             System.out.println( entry.getKey() + " => " + entry.getValue().getContentValueAsString() );
         }
     }
+    
+    public int getMaxRow(){
+        return this.maxRow; 
+    }
+    public int getMaxColumn(){
+        return this.maxColumn; 
+    }
+
+    @Override
+    public void getRowsSpreadsheet() {
+           
+       String [][] arr = new String[this.maxColumn][this.maxRow];
+       for(int i=1; i<= this.maxColumn; i++){
+          for (int j= 1; j <= this.maxRow ; j++){         
+         //     passar la columan i a numero  buscar la coordenada i si te contingut apuntar el string }    
+      //  o fer una llista de key i per cada key dividir la coordenada
+          //}
+      
+     //   SortedSet<String> keys = new TreeSet<>(this.cellsMap.keySet());
+      //  for (String key : keys) { 
+       //     System.out.println( keys); //A1 A10 A11-- A2 A20 A21 
+        
+          }}   
+    }
 }
