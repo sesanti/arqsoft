@@ -16,5 +16,7 @@ public interface Component {
     public String getValueAsString();
     
     public Double getValueAsDouble();
+
+    public void add(Component auxComponent);
 }
 

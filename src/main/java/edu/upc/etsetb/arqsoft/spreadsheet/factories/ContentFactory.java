@@ -41,7 +41,7 @@ public class ContentFactory {
         if(isFormula(contentAsString)){
 
             LinkedList<Token> tokens = tokenizer.tokenize(contentAsString.substring(1));
-            parser.parse(tokens);
+            //parser.parse(tokens);
             components = postFixGenerator.postFixGenerator(tokens, spreadsheet);
 
             MyNumber result = postfixCalculator.postfixEvaluation(components);

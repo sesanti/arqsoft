@@ -39,4 +39,9 @@ public class Operator implements Component{
         throw new NoNumberException("Impossible to return Operator value as Double"); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public void add(Component auxComponent) {
+
+    }
+
 }

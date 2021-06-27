@@ -1,5 +1,6 @@
 package edu.upc.etsetb.arqsoft.spreadsheet.services;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Component;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Spreadsheet;
@@ -9,6 +10,7 @@ import edu.upc.etsetb.arqsoft.spreadsheet.factories.ComponentFactory;
 public class PostFixGenerator {
     LinkedList<Token> tokens;
     LinkedList<Token> operatorStackToken; //guarrada del quince  pero es para no rehacer las funciones de isOpenBracket...... Si tenemos tiempo cambiarlo
+    LinkedList<Token> outputStackToken; //guarrada del quince otra vez
     Token token;
     LinkedList<Component> outputStack;
     LinkedList<Component> operatorStack;
@@ -18,6 +20,7 @@ public class PostFixGenerator {
         this.outputStack = new LinkedList<>();
         this.operatorStackToken = new LinkedList<>();
         this.operatorStack = new LinkedList<>();
+        this.outputStackToken = new LinkedList<>();
         this.componentFactory = new ComponentFactory();
 
     }
@@ -30,6 +33,7 @@ public class PostFixGenerator {
             this.operatorStackToken.clear();
             this.operatorStack.clear();
             this.outputStack.clear();
+            this.outputStackToken.clear();
 
         }
 
@@ -44,31 +48,55 @@ public class PostFixGenerator {
 
             Component component = componentFactory.getInstance(token,spreadsheet);//crear componente le paso spreadsheet para poder coger los values de las celdas
 
+
             if (isOperator(token)) {
                 while (!operatorStack.isEmpty() && getPriority(token) <= getPriority(operatorStackToken.peek())) {
                     // peek() inbuilt stack function to
                     // fetch the top element(token)
 
                     outputStack.add(operatorStack.pop());
-                    operatorStackToken.pop();
+                    outputStackToken.add(operatorStackToken.pop());
+
                 }
                 operatorStack.push(component);
                 operatorStackToken.push(token);
-            } else if (isOpenBracket(token)) {  //mirar bien puede petar
+            } else if (isOpenBracket(token)) {
                 operatorStack.push(component);
                 operatorStackToken.push(token);
 
             } else if (isClosedBracket(token)) {
                 while (!operatorStack.isEmpty() && isOpenBracket(operatorStackToken.peek()) == false) {
                     outputStack.add(operatorStack.pop());
-                    operatorStackToken.pop();
+                    outputStackToken.add(operatorStackToken.pop());
+                }
+                if(isFunction(operatorStackToken.peek())){
+                    outputStack.add(operatorStack.pop());
+                    outputStackToken.add(operatorStackToken.pop());
+                    /*Iterator<Token> iterator = outputStackToken.descendingIterator();
+                    Iterator<Component> iteratorComponent = outputStack.descendingIterator();
+
+                    while(iterator.hasNext()){ // añadir componentes a la funcion y asi ya los tengo
+                        Token aux = iterator.next();
+                        Component auxComponent = iteratorComponent.next();
+                        if(isOperator(aux)){
+                            break;
+                        }
+                        else{
+                            outputStack.peekLast().add(auxComponent);
+                        }
+                    }*/
+
                 }
 
                 operatorStack.pop();
                 operatorStackToken.pop();
-
-            } else { // operand de momento numero
+            }else if (isFunction(token)) {
+                operatorStack.push(component);
+                operatorStackToken.push(token);
+            }
+            else if (isCell(token) || isNumber(token)){
                 outputStack.add(component);
+                outputStackToken.add(token);
             }
         }
 
@@ -77,7 +105,8 @@ public class PostFixGenerator {
                 throw new RuntimeException(); //Poner excepcion invalidka
             }
             outputStack.add(operatorStack.pop());
-            operatorStackToken.pop();
+            outputStackToken.add(operatorStackToken.pop());
+
 
 
         }
@@ -118,6 +147,39 @@ public class PostFixGenerator {
     }
     private  boolean isClosedBracket (Token token) { // lo pongo public para poder acceder desde PostFix generator
         if(token.token == token.CLOSE_BRACKET){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+    private boolean isFunction(Token token){
+        if (token.token == token.FUNCTION){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    private boolean isCell(Token token){
+        if (token.token == token.CELL){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    private boolean isNumber(Token token){
+        if (token.token == token.NUMBER){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    private boolean isSeparator(Token token){
+        if (token.token == token.SEPARATOR){
             return true;
         }
         else{

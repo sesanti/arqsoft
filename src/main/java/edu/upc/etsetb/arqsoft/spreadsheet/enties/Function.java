@@ -9,6 +9,7 @@ package edu.upc.etsetb.arqsoft.spreadsheet.enties;
  *
  * @author sesan
  */
-public interface Function extends Operand {
-    
+public interface Function extends Component {
+    public String calculate();
+    public void add(Component component);
 }

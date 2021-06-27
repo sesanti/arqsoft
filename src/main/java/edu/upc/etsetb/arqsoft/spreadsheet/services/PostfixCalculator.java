@@ -2,6 +2,7 @@
 package edu.upc.etsetb.arqsoft.spreadsheet.services;
 
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Component;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Function;
 import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.MyNumber;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,17 +29,33 @@ public class PostfixCalculator {
         List<Component> stack = new ArrayList<>();
         
         int i=0;
+        int j;
        
         while( i < postfixExpression.size()){
             Component elem= postfixExpression.get(i);
             
-            if(this.isOperator(elem)){ //operator
-             
-                Component topNumber =stack.remove(stack.size()-1);
-                Component bottomNumber =stack.remove(stack.size()-1);
-                Component result= computeResult(bottomNumber, elem, topNumber );
+            if(this.isOperator(elem)) { //operator
+
+                Component topNumber = stack.remove(stack.size() - 1);
+                Component bottomNumber = stack.remove(stack.size() - 1);
+                Component result = computeResult(bottomNumber, elem, topNumber);
                 stack.add(result);
-                
+
+            }else if(this.isFunction(elem)){
+               j = i-1;
+               Component argument = postfixExpression.get(j);
+               Function function = (Function) postfixExpression.get(i);
+
+                while(!this.isOperator(argument)){
+
+                    function.add(argument);
+                    stack.remove(stack.size() - 1);
+                    j = j-1;
+                    argument = postfixExpression.get(j);
+                }
+
+                Component result = MyNumber.getInstance(function.calculate());
+                stack.add(result);
                 
             }else{ //Operand: Number, cell, rangeofcells, functions
              
@@ -62,7 +79,14 @@ public class PostfixCalculator {
           
         
     }
-    
+    private Boolean isFunction(Component component){
+        if(component.getValueAsString().equals("SUMA")||component.getValueAsString().equals("MAX")||component.getValueAsString().equals("MIN")){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     
     private MyNumber computeResult(Component numLeft, Component operator, Component numRight){
      
@@ -83,8 +107,9 @@ public class PostfixCalculator {
                
            case "/":
                result = numLeft.getValueAsDouble() / numRight.getValueAsDouble();
-               break;       
-        } 
+               break;
+
+       }
        
         MyNumber myNumberResult = MyNumber.getInstance(result.toString()); 
         return myNumberResult;

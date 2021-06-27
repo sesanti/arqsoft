@@ -6,6 +6,7 @@
 package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Argument;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.Component;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Function;
 import java.util.List;
 
@@ -33,5 +34,15 @@ public class Promedio implements Function {
     public Double getValueAsDouble() {
         throw new UnsupportedOperationException("Promedio::getValueAsDouble: Unsopported Method"); //To change body of generated methods, choose Tools | Templates.
     }
- 
+
+    @Override
+    public String calculate() {
+        return null;
+    }
+
+    @Override
+    public void add(Component auxComponent) {
+
+    }
+
 }

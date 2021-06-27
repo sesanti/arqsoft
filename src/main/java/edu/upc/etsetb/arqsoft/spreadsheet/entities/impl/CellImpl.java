@@ -5,10 +5,7 @@
  */
 package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
-import edu.upc.etsetb.arqsoft.spreadsheet.enties.Cell;
-import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
-import edu.upc.etsetb.arqsoft.spreadsheet.enties.Operand;
-import edu.upc.etsetb.arqsoft.spreadsheet.enties.Value;
+import edu.upc.etsetb.arqsoft.spreadsheet.enties.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,5 +86,10 @@ public class CellImpl implements Cell, Operand {
     public Double getValueAsDouble() {
        return this.getContentValueAsDouble();
     }
-    
+
+    @Override
+    public void add(Component auxComponent) {
+
+    }
+
 }

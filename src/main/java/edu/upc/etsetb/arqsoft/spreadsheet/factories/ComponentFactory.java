@@ -22,6 +22,9 @@ public class ComponentFactory {
             }else if(isCell(token)){
                 return spreadsheet.getCell(token.sequence);
             }
+            else if(isFunction(token)){
+                return FunctionFactory.getInstance(token.sequence);
+            }
             else{
                throw new UnsupportedOperationException();//
 
@@ -31,7 +34,7 @@ public class ComponentFactory {
 
 
         private boolean isOperator (Token token) {
-           if(token.token == token.PLUSMINUS || token.token == token.MULTDIV || token.token == token.OPEN_BRACKET|| token.token == token.CLOSE_BRACKET){
+           if(token.token == token.PLUSMINUS || token.token == token.MULTDIV || token.token == token.OPEN_BRACKET|| token.token == token.CLOSE_BRACKET || token.token == token.SEPARATOR){
                return true;
            }
            else{
@@ -50,6 +53,14 @@ public class ComponentFactory {
         private boolean isCell (Token token){
             if(token.token == token.CELL){
                 return true;
+            }
+            else{
+                return false;
+            }
+        }
+        private boolean isFunction(Token token){
+            if (token.token == token.FUNCTION){
+            return true;
             }
             else{
                 return false;

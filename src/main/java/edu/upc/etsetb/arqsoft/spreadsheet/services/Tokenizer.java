@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Tokenizer {
-    private static final String REGEX_FUNCTIONS = "SUM|MIN|MAX|PROM";
+    private static final String REGEX_FUNCTIONS = "SUMA|MIN|MAX|PROM";
     private static final String REGEX_OPEN_BRACKET = "\\(";
     private static final String REGEX_CLOSE_BRACKET = "\\)";
     private static final String REGEX_PLUS_SUB = "[+-]";
@@ -17,6 +17,7 @@ public class Tokenizer {
     private static final String REGEX_NUMBER = "(?:\\d+\\.?|\\.\\d)\\d*(?:[Ee][-+]?\\d+)?";
     private static final String REGEX_CELL = "[a-zA-Z][a-zA-Z0-9_]*";
     private static final String REGEX_RAISED = "\\^";
+    private static final String REGEX_SEPARATOR = "\\;";
 
     private LinkedList<TokenInfo> tokenInfos;
     private LinkedList<Token> tokens;
@@ -36,6 +37,7 @@ public class Tokenizer {
         tokenizer.add(REGEX_CLOSE_BRACKET, Token.CLOSE_BRACKET);
         tokenizer.add( REGEX_NUMBER, Token.NUMBER);
         tokenizer.add(REGEX_CELL, Token.CELL);
+        tokenizer.add(REGEX_SEPARATOR, Token.SEPARATOR);
 
         return tokenizer;
     }

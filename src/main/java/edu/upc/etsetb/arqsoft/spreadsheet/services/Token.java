@@ -10,6 +10,7 @@ public class Token {
     public static final int CLOSE_BRACKET = 6;
     public static final int NUMBER = 7;
     public static final int CELL= 8;
+    public static final int SEPARATOR = 9;
 
     public final int token;
     public final String sequence;
