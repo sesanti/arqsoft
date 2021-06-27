@@ -3,6 +3,7 @@ package edu.upc.etsetb.arqsoft.spreadsheet.factories;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Function;
 import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.Max;
 import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.Min;
+import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.Prom;
 import edu.upc.etsetb.arqsoft.spreadsheet.entities.impl.Sum;
 
 public class FunctionFactory {
@@ -16,6 +17,9 @@ public class FunctionFactory {
         }
         else if(isMax(function)){
             return Max.getInstance();
+        }
+        else  if (isProm(function)){
+            return Prom.getInstance();
         }
         else{
             throw new RuntimeException("Error en funcion");
@@ -41,6 +45,14 @@ public class FunctionFactory {
     }
     private static boolean isMax(String contentAsString){
         if(contentAsString.equals("MAX")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    private static boolean isProm(String contentAsString){
+        if(contentAsString.equals("PROM")){
             return true;
         }
         else{

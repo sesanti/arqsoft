@@ -80,7 +80,7 @@ public class PostfixCalculator {
         
     }
     private Boolean isFunction(Component component){
-        if(component.getValueAsString().equals("SUMA")||component.getValueAsString().equals("MAX")||component.getValueAsString().equals("MIN")){
+        if(component.getValueAsString().equals("SUMA")||component.getValueAsString().equals("MAX")||component.getValueAsString().equals("MIN")||component.getValueAsString().equals("MAX")||component.getValueAsString().equals("PROM")){
             return true;
         }
         else {

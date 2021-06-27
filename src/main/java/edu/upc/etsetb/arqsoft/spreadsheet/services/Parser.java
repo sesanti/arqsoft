@@ -13,7 +13,6 @@ public class Parser {
         {
                 this.tokens = (LinkedList) ((LinkedList) tokens).clone();
                 lookahead = this.tokens.getFirst();
-
                 expression();
 
                 if (lookahead.token != Token.EPSILON)
@@ -118,8 +117,8 @@ public class Parser {
                         // factor_op -> EPSILON
                 }
         }
-        private void argument()
-        {
+        private void argument(){
+
                 if (lookahead.token == Token.FUNCTION)
                 {
                         // argument -> FUNCTION argument

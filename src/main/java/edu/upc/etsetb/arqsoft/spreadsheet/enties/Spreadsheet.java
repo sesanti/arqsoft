@@ -26,4 +26,6 @@ public interface Spreadsheet {
     public int getMaxColumn();
 
     public int getMaxRow();
+
+    public void printSpreadsheet();
 }

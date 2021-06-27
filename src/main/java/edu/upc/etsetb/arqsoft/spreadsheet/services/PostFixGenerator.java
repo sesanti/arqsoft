@@ -39,12 +39,10 @@ public class PostFixGenerator {
 
 
         while(!this.tokens.isEmpty()) {
-            /*for(int i=0;i<this.tokens.size();i++){
-                System.out.println(this.tokens.get(i).sequence);
-                System.out.println(tokens.get(i).sequence);
-            }*/
+
+
             token = this.tokens.pop();
-            //System.out.println(token.sequence);
+
 
             Component component = componentFactory.getInstance(token,spreadsheet);//crear componente le paso spreadsheet para poder coger los values de las celdas
 
@@ -72,19 +70,6 @@ public class PostFixGenerator {
                 if(isFunction(operatorStackToken.peek())){
                     outputStack.add(operatorStack.pop());
                     outputStackToken.add(operatorStackToken.pop());
-                    /*Iterator<Token> iterator = outputStackToken.descendingIterator();
-                    Iterator<Component> iteratorComponent = outputStack.descendingIterator();
-
-                    while(iterator.hasNext()){ // añadir componentes a la funcion y asi ya los tengo
-                        Token aux = iterator.next();
-                        Component auxComponent = iteratorComponent.next();
-                        if(isOperator(aux)){
-                            break;
-                        }
-                        else{
-                            outputStack.peekLast().add(auxComponent);
-                        }
-                    }*/
 
                 }
 

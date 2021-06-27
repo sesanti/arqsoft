@@ -42,7 +42,7 @@ public class SpreadsheetController {
         createNewSpreadsheet();
     }
 
-    private void createNewSpreadsheet() {
+    public void createNewSpreadsheet() {
         this.spreadsheet = new SpreadsheetImpl();
     }
     
@@ -147,6 +147,10 @@ public class SpreadsheetController {
 
         */
         setCellContent(coordinate,contentAsString);
+    }
+
+    public void printSpreadsheet(){
+        this.spreadsheet.printSpreadsheet();
     }
 
 
