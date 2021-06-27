@@ -22,7 +22,7 @@ public class PostFixGenerator {
 
     }
 
-    public LinkedList<Component> postFixGenerator(LinkedList<Token> tokens, Spreadsheet spreadsheet){
+    public LinkedList<Component> postFixGenerator(LinkedList<Token> tokens, Spreadsheet spreadsheet, String myCoordinate){
 
         this.tokens=(LinkedList) ((LinkedList) tokens).clone();
         this.spreadsheet = spreadsheet;
@@ -42,7 +42,7 @@ public class PostFixGenerator {
             token = this.tokens.pop();
             //System.out.println(token.sequence);
 
-            Component component = componentFactory.getInstance(token,spreadsheet);//crear componente le paso spreadsheet para poder coger los values de las celdas
+            Component component = componentFactory.getInstance(token,spreadsheet, myCoordinate);//crear componente le paso spreadsheet para poder coger los values de las celdas
 
             if (isOperator(token)) {
                 while (!operatorStack.isEmpty() && getPriority(token) <= getPriority(operatorStackToken.peek())) {

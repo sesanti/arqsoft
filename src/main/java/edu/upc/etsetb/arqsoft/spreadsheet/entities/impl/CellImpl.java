@@ -90,4 +90,14 @@ public class CellImpl implements Cell, Operand {
        return this.getContentValueAsDouble();
     }
     
+   public void setCellWhoDependsOnMe(Cell cell){ 
+       this.whoDependsOnMe.add(cell);
+   }
+   
+   public void setCellIDepend(Cell cell){
+        this.iDepend.add(cell);
+       
+   }
+   
+    
 }

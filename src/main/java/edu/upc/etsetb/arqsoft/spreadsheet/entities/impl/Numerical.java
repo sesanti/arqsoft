@@ -7,6 +7,7 @@ package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Value;
+import java.util.List;
 
 /**
  *
@@ -49,6 +50,11 @@ public class Numerical implements Content{
 
     public String getAsString() {
         return this.myNumber.getValue().toString();
+    }
+
+    @Override
+    public List getComponents() {
+        throw new UnsupportedOperationException("Numerical content can't return List of Components"); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

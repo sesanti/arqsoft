@@ -12,7 +12,7 @@ import java.util.LinkedList;
 
 public class ComponentFactory {
 
-        public Component getInstance(Token token, Spreadsheet spreadsheet) {
+        public Component getInstance(Token token, Spreadsheet spreadsheet,String myCoordinate) {
             if (isOperator(token)) {
                 return Operator.getInstance(token.sequence);
 
@@ -20,7 +20,10 @@ public class ComponentFactory {
 
                 return MyNumber.getInstance(token.sequence);
             }else if(isCell(token)){
+                spreadsheet.updateListDependencies(myCoordinate,token.sequence);
                 return spreadsheet.getCell(token.sequence);
+                
+             
             }
             else{
                throw new UnsupportedOperationException();//

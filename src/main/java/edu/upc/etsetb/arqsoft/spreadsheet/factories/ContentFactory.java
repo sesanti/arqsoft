@@ -37,13 +37,14 @@ public class ContentFactory {
 
     }
 
-    public Content getInstance(String contentAsString, Spreadsheet spreadsheet){
+    public Content getInstance(String contentAsString, Spreadsheet spreadsheet,String coordinate){
         if(isFormula(contentAsString)){
-
+    
             LinkedList<Token> tokens = tokenizer.tokenize(contentAsString.substring(1));
             parser.parse(tokens);
-            components = postFixGenerator.postFixGenerator(tokens, spreadsheet);
-
+            components = postFixGenerator.postFixGenerator(tokens, spreadsheet, coordinate);
+            
+            
             MyNumber result = postfixCalculator.postfixEvaluation(components);
             return Formula.getInstance(result,components,contentAsString);
 

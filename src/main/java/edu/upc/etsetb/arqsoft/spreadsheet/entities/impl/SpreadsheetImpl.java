@@ -53,8 +53,8 @@ public class SpreadsheetImpl implements Spreadsheet {
     public void setCellContent (String coordinate, Content content) {
         updateMaxRowColumn(coordinate);
 
-        CellImpl cell = cellsMap.get(coordinate); //treura una cel·la si ja havia estat creada
-
+        CellImpl cell = cellsMap.get(coordinate); //treura una cel·la si ja havia estat creada    
+        
         if (cell == null) { //cel·la no existeix
             cell = CellFactory.getInstance(content);
             cellsMap.put(coordinate, cell);
@@ -66,10 +66,9 @@ public class SpreadsheetImpl implements Spreadsheet {
       //  printSpreadsheet();
     }
 
+    
     public String columnNumberToString(int column) {
         return String.valueOf((char) (column + 'A' - 1));
-
-
     }
 
 
@@ -161,4 +160,32 @@ public class SpreadsheetImpl implements Spreadsheet {
         }
        //usar la matriu de la funcio per printar els valors com matriu
     }
+    
+    @Override
+    public void updateListDependencies(String mycoordinate, String whoIDepend){
+        
+        CellImpl cellMyself = cellsMap.get(mycoordinate);
+        
+          
+        CellImpl cellWhoIDepend = cellsMap.get(whoIDepend); //treura una cel·la si ja havia estat creada    
+       
+        if (cellMyself == null) { //cel·la no existeix
+            cellMyself = CellFactory.getInstance(null);
+            cellMyself.setCellIDepend(cellWhoIDepend);
+        }else{
+            cellMyself.setCellIDepend(cellWhoIDepend);
+        }
+       
+       
+        if (cellWhoIDepend == null) { //cel·la no existeix
+            cellWhoIDepend = CellFactory.getInstance(null);
+            cellWhoIDepend.setCellWhoDependsOnMe(cellMyself);
+
+        } else {
+            cellWhoIDepend.setCellWhoDependsOnMe(cellMyself);
+        }     
+      
+    }
+    
+    
 }

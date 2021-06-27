@@ -5,6 +5,8 @@
  */
 package edu.upc.etsetb.arqsoft.spreadsheet.enties;
 
+import java.util.List;
+
 /**
  *
  * @author sesan
@@ -16,6 +18,8 @@ public interface Content {
     public Double getAsDouble(); //value
     public String getAsString(); //value or FormulaOrigninalString
     public Value getValue(); //?
+    
+    public List getComponents();
            
     
 }

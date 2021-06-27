@@ -56,4 +56,11 @@ public class Formula implements Content {
         return this.formulaOriginal;
     }
     
+    @Override
+    public List getComponents(){
+        return this.components;
+    }
+    
+    
+    
 }

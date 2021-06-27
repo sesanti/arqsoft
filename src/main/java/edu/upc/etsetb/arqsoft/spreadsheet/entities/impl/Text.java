@@ -7,6 +7,7 @@ package edu.upc.etsetb.arqsoft.spreadsheet.entities.impl;
 
 import edu.upc.etsetb.arqsoft.spreadsheet.enties.Content;
 import edu.upc.etsetb.arqsoft.spreadsheet.exceptions.NoNumberException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
  
@@ -54,6 +55,10 @@ public class Text implements Content{
  
     public String getAsString() {
         return this.myString.getValue();
+    }
+    @Override
+    public List getComponents() {
+        throw new UnsupportedOperationException("Numerical content can't return List of Components"); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
